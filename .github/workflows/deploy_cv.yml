@@ -1,0 +1,39 @@
+name: Build and Deploy
+
+permissions:
+    contents: write
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code 🛎️
+              uses: actions/checkout@v3
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "20.15.1"
+
+            - name: Install dependencies 🔧
+              run: npm install
+
+            - name: Run tests and generate coverage report 📂
+              run: npm run coverage
+
+            - name: Build the project 🔨
+              run: npm run build
+
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  branch: gh-pages
+                  folder: dist
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  clean: true
