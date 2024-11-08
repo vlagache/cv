@@ -1,61 +1,157 @@
+<header class="sticky top-0 z-20">
+    <Navbar class="bg-transparent">
+        <div
+            id="debug"
+            class="text-sm text-cat-red border-2 border-cat-pink flex flex-row space-x-2">
+            {#if commitDate}
+                <div>
+                    <Badge
+                        border
+                        class="bg-cat-sapphire text-cat-crust font-semibold border-0">
+                        <ClockSolid class="w-2.5 h-2.5 me-1.5" />
+                        Last update : {commitDate}
+                    </Badge>
+                </div>
+            {/if}
+            {#if coverageData}
+                <div>
+                    <Badge
+                        border
+                        class="bg-cat-sapphire text-cat-crust font-semibold border-0">
+                        <CheckCircleSolid class="w-2.5 h-2.5 me-1.5" />
+                        Couverture de tests : {coverageData.total.lines.pct}%
+                    </Badge>
+                </div>
+            {/if}
+        </div>
+        <div class="flex flex-row space-x-2">
+            <div>Bouton 1</div>
+            <div>Bouton 2</div>
+            <div>Bouton 3</div>
+        </div>
+    </Navbar>
+</header>
+
 <main>
-    <div class="bg-cat-flamingo">
-        je tente de faire mon cv avec svelte/vite sur githubpage
+    <div
+        id="cv"
+        class="container mx-auto flex flex-row border-2 border-cat-peach">
+        <div
+            id="left_part"
+            class="border-2 border-cat-rosewater w-2/3 mx-10 mt-20">
+            <div
+                id="me"
+                class="border-2 border-cat-blue inline-flex flex-col space-y-5 mb-20">
+                <Heading
+                    tag="h1"
+                    color="text-cat-text"
+                    customSize="text-5xl font-extrabold">
+                    {name}
+                </Heading>
+                <Heading
+                    tag="h2"
+                    color="text-cat-peach"
+                    customSize="font-semibold text-4xl jetbrains_font tracking-widest">
+                    {job}
+                </Heading>
+            </div>
+            <div
+                id="what_i_want"
+                class="border-2 border-cat-mauve text-justify leading-loose">
+                Développeur passionné par l'innovation technologique, avec <Mark
+                    class="bg-cat-mauve/80 text-cat-base font-semibold"
+                    >plus de quatre ans d'expérience en développement
+                    d'applications web avec Python</Mark> et <Mark
+                    class="bg-cat-mauve/80 text-cat-base font-semibold"
+                    >deux ans en développement frontend avec Angular.</Mark> Je suis
+                à la recherche d'un <Mark
+                    class="bg-cat-mauve/80 text-cat-base font-semibold"
+                    >poste de développeur backend Python,</Mark> tout en étant ouvert
+                à l'apprentissage d'autres langages ou d'autres domaines du développement
+                informatique (logiciel, embarqué, cloud, DevOps). Je dispose également
+                d'une <Mark class="bg-cat-mauve/80 text-cat-base font-semibold"
+                    >formation en Intelligence Artificielle (IA) et Machine
+                    Learning (ML),</Mark> ce qui me permet de comprendre les grands
+                principes et les problématiques clés de ces domaines.
+                <Mark class="bg-cat-mauve/80 text-cat-base font-semibold"
+                    >Intéressé par le MLOps,</Mark> je suis ouvert aux opportunités
+                dans ce secteur. J'aime approfondir mes expériences personnelles,
+                notamment à travers l'écriture d'articles, comme <Mark
+                    class="bg-cat-mauve/80 text-cat-base font-semibold">
+                    <A
+                        href="https://medium.com/@vlagache/ma-d%C3%A9couverte-de-neovim-c1c10e90ad6b"
+                        target="_blank"
+                        class="underline"
+                        >ma série sur la découverte de Neovim
+                    </A>.
+                </Mark>.
+            </div>
+        </div>
+        <div
+            id="right_part"
+            class="border-2 border-cat-rosewater w-1/3 mt-14 mx-10">
+            <div id="photo" class="border-2 border-cat-peach">
+                <svg
+                    class="stroke-cat-peach arrow_photo"
+                    viewBox="0 0 184 95"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M183.03 2.01119C168.564 -0.191972 158.82 0.972181 146.475 8.87399C135.326 16.0098 126.026 28.6533 117.677 38.7772C107.34 51.3116 83.6932 70.1236 66.9974 58.9503C54.0337 50.2745 54.5518 30.622 70.8595 26.4444C77.1464 24.8339 84.1201 30.4333 84.6253 36.8274C85.1709 43.7335 78.9487 50.8187 74.3239 55.1633C61.9034 66.8314 44.5447 58.9198 30.1812 64.0831C16.7618 68.9071 10.8958 79.567 5.96193 92.2466C5.53931 93.3327 3.51497 88.9073 2.9078 87.8589C0.681952 84.0156 0.901432 86.1664 2.58439 89.0723C3.66676 90.9412 4.98358 95.485 6.89001 92.9632C8.26543 91.1439 11.9885 88.7563 14.0297 87.5742"
+                        stroke-width="2"
+                        stroke-linecap="round"></path>
+                </svg>
+                <img
+                    src={photoDarkTheme}
+                    alt="Me in light mode"
+                    class="w-48 h-48 rounded-full" />
+            </div>
+            <div
+                id="informations"
+                class="border-2 border-cat-pink mt-10 leading-loose text-lg">
+                <p class="email">v1.lagache@gmail.com</p>
+                <p class="phone">06.86.56.07.77</p>
+                <p class="location">Bordeaux</p>
+            </div>
+        </div>
     </div>
-    <div>GITHUB ACTION MARCHE?</div>
-    <div class="text-3xl">CA ecrit en Poppins ce truc ?</div>
-    <Badge border>Default</Badge>
-    <Card href="/cards">
-        <h5
-            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Noteworthy technology acquisitions 2021
-        </h5>
-        <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-        </p>
-    </Card>
-
-    <button on:click={downloadPDF}>Télécharger la page en PDF</button>
-
-    {#if commitDate}
-        <p>Dernier commit sur le repo : {commitDate}</p>
-    {:else}
-        <p>Chargement...</p>
-    {/if}
-
-    {#if coverageData}
-        <p>Lines coverage: {coverageData.total.lines.pct}%</p>
-    {:else}
-        <p>Chargement de la couverture...</p>
-    {/if}
-
-    <svg
-        class="stroke-cat-peach"
-        width="175"
-        height="119"
-        viewBox="0 0 175 119"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <path
-            d="M37.8377 2.65698C28.0712 4.07471 8.05838 3.92133 3.38152 15.9472C1.02841 21.9979 10.1666 27.3991 14.2106 29.5656C21.3658 33.3987 30.1085 37.0335 36.1969 42.4456C42.7046 48.2303 35.0863 51.6036 30.1261 54.9974C13.1161 66.6359 16.3827 75.3889 34.8843 82.0701C65.4449 93.1059 99.6672 93.75 131.443 99.2981C142.597 101.245 153.805 101.676 164.833 104.22C168.696 105.112 170.387 103.656 166.966 100.857C164.522 98.8573 147.099 86.0787 156.711 93.5554C160.778 96.7186 169.144 98.493 172.216 102.334C174.229 104.85 152.263 111.77 148.589 116.362"
-            stroke-width="5"
-            stroke-linecap="round"></path>
-    </svg>
 </main>
 
+<div class="min-h-[1000px] placeholder"></div>
+
+<footer class="border-t-2 border-cat-mauve mt-24">
+    <Footer class="container mx-auto">
+        <div class="py-2 bg-transparent flex flex-row justify-between">
+            <div class="skills-icons flex items-center">
+                <span class="mr-5">Créé avec</span>
+                <img
+                    src="https://skillicons.dev/icons?i=svelte,tailwind,githubactions"
+                    alt="Skills Icons" />
+            </div>
+
+            <div>Article ici blabla</div>
+        </div>
+    </Footer>
+</footer>
+
 <script lang="ts">
-    import { Badge, Card } from "flowbite-svelte"
-    import { downloadPDF } from "@lib/utils/pdf"
+    // import { downloadPDF } from "@lib/utils/pdf"
     import { getLastCommitDate } from "@lib/utils/github"
     import { getCoverageData } from "@lib/utils/coverage"
     import { onMount } from "svelte"
-    let commitDate: string | null = null
+    import { Heading, Mark, A, Badge, Navbar, Footer } from "flowbite-svelte"
+    import { ClockSolid, CheckCircleSolid } from "flowbite-svelte-icons"
+    import photoDarkTheme from "@assets/me_dark.png"
+
+    let commitDate: string | null = "Fake Date"
     let coverageData: any = null
+
+    let name: string = "Vincent Lagache"
+    let job: string = "Développeur"
 
     onMount(async () => {
         coverageData = await getCoverageData()
-        commitDate = await getLastCommitDate()
+        // commitDate = await getLastCommitDate()
     })
 </script>
 
