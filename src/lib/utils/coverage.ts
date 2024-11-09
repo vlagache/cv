@@ -1,5 +1,5 @@
-export async function getCoverageData() {
-    const response = await fetch('/cv/coverage/coverage-summary.json');
-    const data = await response.json();
-    return data;
+import coverageContent from "@assets/data/coverage/coverage-summary.json"
+
+export function getCoveragePercentage() {
+    return coverageContent.total.lines.pct
 }

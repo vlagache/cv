@@ -13,13 +13,18 @@
                     </Badge>
                 </div>
             {/if}
-            {#if coverageData}
+            {#if coverageDataPercentage}
                 <div>
                     <Badge
                         border
                         class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire">
                         <CheckCircleSolid class="w-2.5 h-2.5 me-1.5" />
-                        Couverture de tests : {coverageData.total.lines.pct}%
+                        <A
+                            href="https://github.com/vlagache/cv/tree/master/tests"
+                            target="_blank"
+                            class="underline hover:text-cat-flamingo"
+                            >Couverture de tests : {coverageDataPercentage}%
+                        </A>.
                     </Badge>
                 </div>
             {/if}
@@ -77,7 +82,7 @@
                     >Intéressé par le MLOps,</Mark> je suis ouvert aux opportunités
                 dans ce secteur. J'aime approfondir mes expériences personnelles,
                 notamment à travers l'écriture d'articles, comme <Mark
-                    class="bg-cat-mauve/80 text-cat-base font-semibold">
+                    class="bg-cat-mauve/80 hover:bg-cat-flamingo text-cat-base font-semibold">
                     <A
                         href="https://medium.com/@vlagache/ma-d%C3%A9couverte-de-neovim-c1c10e90ad6b"
                         target="_blank"
@@ -137,20 +142,20 @@
 <script lang="ts">
     // import { downloadPDF } from "@lib/utils/pdf"
     import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
-    import { getCoverageData } from "@lib/utils/coverage"
+    import { getCoveragePercentage } from "@lib/utils/coverage"
     import { onMount } from "svelte"
     import { Heading, Mark, A, Badge, Navbar, Footer } from "flowbite-svelte"
     import { ClockSolid, CheckCircleSolid } from "flowbite-svelte-icons"
     import photoDarkTheme from "@assets/me_dark.png"
 
     let lastUpdateDate: string | null = null
-    let coverageData: any = null
+    let coverageDataPercentage: any = null
 
     let name: string = "Vincent Lagache"
     let job: string = "Développeur"
 
     onMount(async () => {
-        coverageData = await getCoverageData()
+        coverageDataPercentage = getCoveragePercentage()
         lastUpdateDate = getLastUpdateDate()
     })
 </script>
