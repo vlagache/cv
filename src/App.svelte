@@ -1,8 +1,8 @@
 <header class="sticky top-0 z-20">
-    <Navbar class="bg-transparent">
+    <Navbar class="bg-transparent skeleton">
         <div
             id="debug"
-            class="text-sm text-cat-red border-2 border-cat-pink flex flex-row space-x-2">
+            class="text-sm text-cat-red flex flex-row space-x-2 skeleton ml-10">
             {#if lastUpdateDate}
                 <div>
                     <Badge
@@ -29,8 +29,22 @@
                 </div>
             {/if}
         </div>
-        <div class="flex flex-row space-x-2">
-            <div>Bouton 1</div>
+        <div class="flex flex-row space-x-2 mr-10">
+            <button id="skeleton-button" on:click={testButton} class="w-7 h-7">
+                <ColumnSolid
+                    class="w-7 h-7 {skeletonButtonIsClicked
+                        ? 'text-cat-red'
+                        : 'text-cat-surface2 hover:text-cat-flamingo'}" />
+            </button>
+            {#if !skeletonButtonIsClicked}
+                <Tooltip
+                    triggeredBy="#skeleton-button"
+                    placement="bottom"
+                    class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
+                    arrow={false}>
+                    Active les bordures
+                </Tooltip>
+            {/if}
             <div>Bouton 2</div>
             <div>Bouton 3</div>
         </div>
@@ -38,15 +52,9 @@
 </header>
 
 <main>
-    <div
-        id="cv"
-        class="container mx-auto flex flex-row border-2 border-cat-peach">
-        <div
-            id="left_part"
-            class="border-2 border-cat-rosewater w-2/3 mx-10 mt-20">
-            <div
-                id="me"
-                class="border-2 border-cat-blue inline-flex flex-col space-y-5 mb-20">
+    <div id="cv" class="container mx-auto flex flex-row skeleton">
+        <div id="left_part" class="w-2/3 mx-10 mt-20 skeleton">
+            <div id="me" class="inline-flex flex-col space-y-5 mb-20 skeleton">
                 <Heading
                     tag="h1"
                     color="text-cat-text"
@@ -60,9 +68,7 @@
                     {job}
                 </Heading>
             </div>
-            <div
-                id="what_i_want"
-                class="border-2 border-cat-mauve text-justify leading-loose">
+            <div id="what_i_want" class="text-justify leading-loose skeleton">
                 Développeur passionné par l'innovation technologique, avec <Mark
                     class="bg-cat-mauve/80 text-cat-base font-semibold"
                     >plus de quatre ans d'expérience en développement
@@ -92,12 +98,10 @@
                 </Mark>.
             </div>
         </div>
-        <div
-            id="right_part"
-            class="border-2 border-cat-rosewater w-1/3 mt-14 mx-10">
-            <div id="photo" class="border-2 border-cat-peach">
+        <div id="right_part" class="w-1/3 mt-14 mx-10 skeleton">
+            <div id="photo" class="skeleton">
                 <svg
-                    class="stroke-cat-peach arrow_photo"
+                    class="stroke-cat-peach arrow_photo skeleton"
                     viewBox="0 0 184 95"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -111,9 +115,7 @@
                     alt="Me in light mode"
                     class="w-48 h-48 rounded-full" />
             </div>
-            <div
-                id="informations"
-                class="border-2 border-cat-pink mt-10 leading-loose text-lg">
+            <div id="informations" class="mt-10 leading-loose text-lg skeleton">
                 <p class="email">v1.lagache@gmail.com</p>
                 <p class="phone">06.86.56.07.77</p>
                 <p class="location">Bordeaux</p>
@@ -142,10 +144,23 @@
 <script lang="ts">
     // import { downloadPDF } from "@lib/utils/pdf"
     import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
+    import { applyRandomBorderColor, toggleSkeleton } from "@lib/utils/skeleton"
     import { getCoveragePercentage } from "@lib/utils/coverage"
     import { onMount } from "svelte"
-    import { Heading, Mark, A, Badge, Navbar, Footer } from "flowbite-svelte"
-    import { ClockSolid, CheckCircleSolid } from "flowbite-svelte-icons"
+    import {
+        Heading,
+        Mark,
+        A,
+        Badge,
+        Navbar,
+        Footer,
+        Tooltip,
+    } from "flowbite-svelte"
+    import {
+        ClockSolid,
+        CheckCircleSolid,
+        ColumnSolid,
+    } from "flowbite-svelte-icons"
     import photoDarkTheme from "@assets/me_dark.png"
 
     let lastUpdateDate: string | null = null
@@ -154,9 +169,18 @@
     let name: string = "Vincent Lagache"
     let job: string = "Développeur"
 
+    let skeletonButtonIsClicked: boolean =
+        import.meta.env.VITE_SKELETON_MODE_ACTIVATED === "true"
+
+    function testButton() {
+        skeletonButtonIsClicked = !skeletonButtonIsClicked
+        toggleSkeleton()
+    }
+
     onMount(async () => {
         coverageDataPercentage = getCoveragePercentage()
         lastUpdateDate = getLastUpdateDate()
+        applyRandomBorderColor()
     })
 </script>
 

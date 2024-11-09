@@ -6,13 +6,13 @@ import { getLastUpdateDate } from "../../../src/lib/utils/lastUpdateDate"
 vi.mock("@assets/data/last_update_date.txt?raw", () => {
     return { default: "1987-05-07" }
 })
-
 describe("getLastUpdateDate", () => {
     it("should return the formatted date", async () => {
         // Given
         const expectedDate = "07/05/1987"
+
         // When
-        const result = getLastUpdateDate()
+        const result = await(getLastUpdateDate())
         // Then
         expect(result).toEqual(expectedDate)
     })

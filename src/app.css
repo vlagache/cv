@@ -23,3 +23,11 @@ body {
     width: 330px;
     height: auto;
 }
+
+.skeleton {
+    @apply border-2;
+}
+
+.skeleton-disabled {
+    @apply border-transparent;
+}
