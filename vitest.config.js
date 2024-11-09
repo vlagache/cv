@@ -4,7 +4,7 @@ export default defineConfig({
     plugins: [],
     test: {
         globals: true, 
-        include: ['tests/**/*.{test,spec}.{js,ts}'],
+        include: ['**/*.test.ts'],
         coverage: {
             reporter: ['text', 'json-summary'],
             reportsDirectory: './public/coverage',

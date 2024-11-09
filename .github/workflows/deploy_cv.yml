@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: build and deploy my cv 🚀
 
 permissions:
     contents: write
@@ -27,6 +27,9 @@ jobs:
             - name: Run tests and generate coverage report 📂
               run: npm run coverage
 
+            - name: Create last update date file 📄
+              run: echo "$(TZ='Europe/Paris' date +"%Y-%m-%d")" > src/assets/data/last_update_date.txt
+
             - name: Build the project 🔨
               run: npm run build
 
@@ -35,5 +38,4 @@ jobs:
               with:
                   branch: gh-pages
                   folder: dist
-                  token: ${{ secrets.GITHUB_TOKEN }}
                   clean: true

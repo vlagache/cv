@@ -3,13 +3,13 @@
         <div
             id="debug"
             class="text-sm text-cat-red border-2 border-cat-pink flex flex-row space-x-2">
-            {#if commitDate}
+            {#if lastUpdateDate}
                 <div>
                     <Badge
                         border
-                        class="bg-cat-sapphire text-cat-crust font-semibold border-0">
+                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire">
                         <ClockSolid class="w-2.5 h-2.5 me-1.5" />
-                        Last update : {commitDate}
+                        Dernière mise à jour : {lastUpdateDate}
                     </Badge>
                 </div>
             {/if}
@@ -17,7 +17,7 @@
                 <div>
                     <Badge
                         border
-                        class="bg-cat-sapphire text-cat-crust font-semibold border-0">
+                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire">
                         <CheckCircleSolid class="w-2.5 h-2.5 me-1.5" />
                         Couverture de tests : {coverageData.total.lines.pct}%
                     </Badge>
@@ -136,14 +136,14 @@
 
 <script lang="ts">
     // import { downloadPDF } from "@lib/utils/pdf"
-    import { getLastCommitDate } from "@lib/utils/github"
+    import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
     import { getCoverageData } from "@lib/utils/coverage"
     import { onMount } from "svelte"
     import { Heading, Mark, A, Badge, Navbar, Footer } from "flowbite-svelte"
     import { ClockSolid, CheckCircleSolid } from "flowbite-svelte-icons"
     import photoDarkTheme from "@assets/me_dark.png"
 
-    let commitDate: string | null = "Fake Date"
+    let lastUpdateDate: string | null = null
     let coverageData: any = null
 
     let name: string = "Vincent Lagache"
@@ -151,7 +151,7 @@
 
     onMount(async () => {
         coverageData = await getCoverageData()
-        // commitDate = await getLastCommitDate()
+        lastUpdateDate = getLastUpdateDate()
     })
 </script>
 
