@@ -1,4 +1,4 @@
-<footer class="border-t-2 border-cat-mauve mt-24 print:hidden">
+<footer class="border-t-2 border-cat-lavender mt-24 print:hidden">
     <Footer class="container mx-auto">
         <div class="py-2 bg-transparent flex flex-row justify-between">
             <div class="skills-icons flex items-center">

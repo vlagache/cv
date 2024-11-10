@@ -31,9 +31,7 @@ jobs:
               run: echo "$(TZ='Europe/Paris' date +"%Y-%m-%d")" > src/assets/data/last_update_date.txt
 
             - name: Start server in dark mode for pdf generation 🌐
-              run: |
-                  VITE_THEME_MODE=dark VITE_SKELETON_MODE_ACTIVATED=false npm run dev &
-                  echo "DARKMODE_SERVER_PID=$!" >> $GITHUB_ENV
+              run: VITE_THEME_MODE=dark VITE_SKELETON_MODE_ACTIVATED=false npm run dev &
 
             - name: Generate pdf dark theme 🌘
               run: node scripts/generatePdf.js dark
@@ -41,19 +39,13 @@ jobs:
             - name: Kill any process using port 5173 🚫
               run: |
                   lsof -ti:5173 | xargs kill -9 || true
-                  sleep 10  # Attendre que le port soit bien libéré
+                  sleep 10
 
             - name: Start server in light mode for pdf generation 🌐
-              run: |
-                  VITE_THEME_MODE=light VITE_SKELETON_MODE_ACTIVATED=false VITE_PORT=5173 npm run dev &
-                  echo "LIGHTMODE_SERVER_PID=$!" >> $GITHUB_ENV
+              run: VITE_THEME_MODE=light VITE_SKELETON_MODE_ACTIVATED=false VITE_PORT=5173 npm run dev &
 
             - name: Generate pdf light theme 🌞
               run: node scripts/generatePdf.js light
-
-            - name: Kill server 🚫
-              run: |
-                  kill $LIGHTMODE_SERVER_PID
 
             - name: Build the project 🔨
               run: npm run build

@@ -7,7 +7,7 @@
                 <div>
                     <Badge
                         border
-                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire p-1">
+                        class="bg-cat-transparent text-cat-lavender text-sm font-semibold border-cat-lavender p-1">
                         <Icon class="w-4 h-4 me-1.5" icon="lucide:clock" />
                         Dernière mise à jour : {lastUpdateDate}
                     </Badge>
@@ -17,7 +17,7 @@
                 <div>
                     <Badge
                         border
-                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire p-1">
+                        class="bg-cat-transparent text-cat-lavender text-sm font-semibold border-cat-lavender p-1">
                         <Icon
                             class="w-4 h-4 me-1.5"
                             icon="lucide:circle-check" />
@@ -104,6 +104,7 @@
     import { ThemeMode } from "@lib/enums"
     import { downloadCorrectPdf } from "@lib/utils/pdf"
     import { toggleSkeleton } from "@lib/utils/skeleton"
+    import { scrollY } from "@stores/scroll"
     import { themeMode } from "@stores/themeMode"
     import { A, Badge, Navbar, Tooltip } from "flowbite-svelte"
     import { onMount } from "svelte"
@@ -129,7 +130,28 @@
             : themeMode.set(ThemeMode.DARK)
     }
 
-    onMount(() => {
-        console.log("Navbar mounted")
-    })
+    $: {
+        const header = document.querySelector("header")
+        if (header) {
+            if ($scrollY > 40) {
+                header.classList.add(
+                    "backdrop-blur-xl",
+                    "border-b-2",
+                    "border-cat-lavender",
+                    "duration-100",
+                    "ease-linear"
+                )
+                header.classList.remove("bg-transparent")
+            } else {
+                header.classList.remove(
+                    "backdrop-blur-xl",
+                    "border-b-2",
+                    "border-cat-lavender"
+                )
+                header.classList.add("bg-transparent")
+            }
+        }
+    }
+
+    onMount(() => {})
 </script>

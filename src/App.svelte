@@ -81,7 +81,15 @@
     </div>
 </main>
 
-<div class="min-h-[1000px] placeholder"></div>
+<div class="min-h-[1300px] placeholder"></div>
+
+{#if buttonScrollToTopisVisible}
+    <button
+        onclick={scrollToTop}
+        class="p-2 fixed bottom-20 right-10 bg-cat-lavender text-cat-crust rounded-full">
+        <Icon icon="flowbite:angle-top-solid" width="30" height="30" />
+    </button>
+{/if}
 
 <Footer />
 
@@ -90,10 +98,12 @@
     import photoLightTheme from "@assets/me_light.png"
     import Footer from "@components/Footer.svelte"
     import Navbar from "@components/Navbar.svelte"
+    import Icon from "@iconify/svelte"
     import { ThemeMode } from "@lib/enums"
     import { getCoveragePercentage } from "@lib/utils/coverage"
     import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
     import { applyRandomBorderColor } from "@lib/utils/skeleton"
+    import { scrollY } from "@stores/scroll"
     import { themeMode } from "@stores/themeMode"
     import { A, Heading, Mark } from "flowbite-svelte"
     import { onMount } from "svelte"
@@ -103,14 +113,19 @@
 
     let name: string = "Vincent Lagache"
     let job: string = "Développeur"
-
-    onMount(async () => {
-        console.log("App component mounted")
-        coverageDataPercentage = getCoveragePercentage()
-        lastUpdateDate = getLastUpdateDate()
-    })
+    let buttonScrollToTopisVisible: boolean = $state(false)
 
     $effect(() => {
+        buttonScrollToTopisVisible = $scrollY > window.innerHeight
+    })
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    onMount(async () => {
+        coverageDataPercentage = getCoveragePercentage()
+        lastUpdateDate = getLastUpdateDate()
         applyRandomBorderColor()
     })
 </script>
