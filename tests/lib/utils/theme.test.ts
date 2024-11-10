@@ -19,7 +19,6 @@ describe("applyTheme", () => {
         // Then
         const root = document.querySelector(":root") as HTMLElement
         const colors = themesColorValues[ThemeName.MACCHIATO]
-        console.log()
         for (const [variable, value] of Object.entries(colors)) {
             expect(root.style.getPropertyValue(variable)).toBe(value)
         }

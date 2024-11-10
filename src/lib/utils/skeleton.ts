@@ -1,5 +1,4 @@
 export function applyRandomBorderColor() {
-    console.log("applyRandomBorderColor is called")
     const skeletonModeisActivated =
         import.meta.env.VITE_SKELETON_MODE_ACTIVATED === "true"
     const skeletonElements = document.querySelectorAll(".skeleton")

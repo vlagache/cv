@@ -46,7 +46,7 @@
                         class="underline"
                         >ma série sur la découverte de Neovim
                     </A>.
-                </Mark>.
+                </Mark>
             </div>
         </div>
         <div id="right_part" class="w-1/3 mt-14 mx-10 skeleton print:ml-15">
@@ -105,12 +105,12 @@
     let job: string = "Développeur"
 
     onMount(async () => {
+        console.log("App component mounted")
         coverageDataPercentage = getCoveragePercentage()
         lastUpdateDate = getLastUpdateDate()
     })
 
     $effect(() => {
-        console.log("App mounted")
         applyRandomBorderColor()
     })
 </script>

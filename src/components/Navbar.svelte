@@ -104,14 +104,12 @@
     import { ThemeMode } from "@lib/enums"
     import { downloadCorrectPdf } from "@lib/utils/pdf"
     import { toggleSkeleton } from "@lib/utils/skeleton"
-    import { applyTheme } from "@lib/utils/theme"
     import { themeMode } from "@stores/themeMode"
     import { A, Badge, Navbar, Tooltip } from "flowbite-svelte"
     import { onMount } from "svelte"
 
     export let lastUpdateDate
     export let coverageDataPercentage
-
 
     let skeletonButtonIsClicked: boolean =
         import.meta.env.VITE_SKELETON_MODE_ACTIVATED === "true"
@@ -122,14 +120,13 @@
     }
 
     function handlePdfDownload() {
-        downloadCorrectPdf(ThemeMode.DARK)
+        downloadCorrectPdf($themeMode)
     }
 
     function toggleThemeMode() {
         $themeMode === ThemeMode.DARK
             ? themeMode.set(ThemeMode.LIGHT)
             : themeMode.set(ThemeMode.DARK)
-        applyTheme($themeMode)
     }
 
     onMount(() => {

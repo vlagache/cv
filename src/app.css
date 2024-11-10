@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .text-justify-last-left {
+        text-align: justify;
+        word-spacing: -2px;
+    }
+}
+
 html,
 body {
     @apply bg-cat-crust text-cat-text font-medium min-h-screen;
@@ -66,6 +73,10 @@ body {
         height: auto;
         transform-origin: top right;
     } */
+
+    #what_i_want {
+        word-spacing: -0.05em;
+    }
 
     #arrow_photo {
         transform: scale(0.6);
