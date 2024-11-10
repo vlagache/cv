@@ -1,74 +1,6 @@
-<header class="sticky top-0 z-20 print:hidden">
-    <Navbar class="bg-transparent skeleton">
-        <div
-            id="debug"
-            class="text-sm text-cat-red flex flex-row space-x-2 skeleton ml-10">
-            {#if lastUpdateDate}
-                <div>
-                    <Badge
-                        border
-                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire">
-                        <ClockSolid class="w-2.5 h-2.5 me-1.5" />
-                        Dernière mise à jour : {lastUpdateDate}
-                    </Badge>
-                </div>
-            {/if}
-            {#if coverageDataPercentage}
-                <div>
-                    <Badge
-                        border
-                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire">
-                        <CheckCircleSolid class="w-2.5 h-2.5 me-1.5" />
-                        <A
-                            href="https://github.com/vlagache/cv/tree/master/tests"
-                            target="_blank"
-                            class="underline hover:text-cat-flamingo"
-                            >Couverture de tests : {coverageDataPercentage}%
-                        </A>.
-                    </Badge>
-                </div>
-            {/if}
-        </div>
-        <div class="flex flex-row space-x-4 mr-10">
-            <button
-                id="skeleton-button"
-                on:click={handleSkeletonMode}
-                class="w-7 h-7">
-                <ColumnSolid
-                    class="w-7 h-7 {skeletonButtonIsClicked
-                        ? 'text-cat-red'
-                        : 'text-cat-surface2 hover:text-cat-flamingo'}" />
-            </button>
-            {#if !skeletonButtonIsClicked}
-                <Tooltip
-                    triggeredBy="#skeleton-button"
-                    placement="bottom"
-                    class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
-                    arrow={false}>
-                    Active les bordures
-                </Tooltip>
-            {/if}
-            <div>
-                <button
-                    id="pdf-button"
-                    on:click={handlePdfDownload}
-                    class="w-7 h-7">
-                    <FilePdfSolid
-                        class="w-7 h-7 text-cat-surface2 hover:text-cat-flamingo" />
-                </button>
-                <Tooltip
-                    triggeredBy="#pdf-button"
-                    placement="bottom"
-                    class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
-                    arrow={false}>
-                    Télécharger ce CV au format PDF
-                </Tooltip>
-            </div>
-            <div>Bouton 3</div>
-        </div>
-    </Navbar>
-</header>
-
+<Navbar
+    lastUpdateDate={lastUpdateDate}
+    coverageDataPercentage={coverageDataPercentage} />
 <main>
     <div
         id="cv"
@@ -150,62 +82,23 @@
 
 <div class="min-h-[1000px] placeholder"></div>
 
-<footer class="border-t-2 border-cat-mauve mt-24 print:hidden">
-    <Footer class="container mx-auto">
-        <div class="py-2 bg-transparent flex flex-row justify-between">
-            <div class="skills-icons flex items-center">
-                <span class="mr-5">Créé avec</span>
-                <img
-                    src="https://skillicons.dev/icons?i=svelte,tailwind,githubactions"
-                    alt="Skills Icons" />
-            </div>
-
-            <div>Article ici blabla</div>
-        </div>
-    </Footer>
-</footer>
+<Footer />
 
 <script lang="ts">
-    import { downloadCorrectPdf } from "@lib/utils/pdf"
-    import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
-    import { applyRandomBorderColor, toggleSkeleton } from "@lib/utils/skeleton"
-    import { getCoveragePercentage } from "@lib/utils/coverage"
-    import { onMount } from "svelte"
-    import {
-        Heading,
-        Mark,
-        A,
-        Badge,
-        Navbar,
-        Footer,
-        Tooltip,
-    } from "flowbite-svelte"
-    import {
-        ClockSolid,
-        CheckCircleSolid,
-        ColumnSolid,
-        FilePdfSolid,
-    } from "flowbite-svelte-icons"
     import photoDarkTheme from "@assets/me_dark.png"
-    import { ThemeMode } from "@lib/enums"
+    import Footer from "@components/Footer.svelte"
+    import Navbar from "@components/Navbar.svelte"
+    import { getCoveragePercentage } from "@lib/utils/coverage"
+    import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
+    import { applyRandomBorderColor } from "@lib/utils/skeleton"
+    import { A, Heading, Mark } from "flowbite-svelte"
+    import { onMount } from "svelte"
 
     let lastUpdateDate: string | null = null
     let coverageDataPercentage: any = null
 
     let name: string = "Vincent Lagache"
     let job: string = "Développeur"
-
-    let skeletonButtonIsClicked: boolean =
-        import.meta.env.VITE_SKELETON_MODE_ACTIVATED === "true"
-
-    function handleSkeletonMode() {
-        skeletonButtonIsClicked = !skeletonButtonIsClicked
-        toggleSkeleton()
-    }
-
-    function handlePdfDownload() {
-        downloadCorrectPdf(ThemeMode.DARK)
-    }
 
     onMount(async () => {
         coverageDataPercentage = getCoveragePercentage()

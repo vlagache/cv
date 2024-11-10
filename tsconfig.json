@@ -18,7 +18,8 @@
         "baseUrl": ".",
         "paths": {
             "@lib/*": ["src/lib/*"],
-            "@assets/*": ["src/assets/*"]
+            "@assets/*": ["src/assets/*"],
+            "@components/*": ["src/components/*"]
         }
     },
     "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],

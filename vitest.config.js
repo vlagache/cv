@@ -7,7 +7,8 @@ export default defineConfig({
         environment: 'jsdom', 
         alias: {
             '@lib/': new URL('./src/lib/', import.meta.url).pathname,
-            '@assets/': new URL('./src/assets/', import.meta.url).pathname
+            '@assets/': new URL('./src/assets/', import.meta.url).pathname,
+            '@components/': new URL('./src/components/', import.meta.url).pathname,
         },
         include: ['**/*.test.ts'],
         coverage: {

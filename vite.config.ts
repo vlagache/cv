@@ -10,6 +10,7 @@ export default defineConfig({
         alias: {
             "@lib": "/src/lib",
             "@assets": "/src/assets",
+            "@components": "/src/components",
         },
     },
 })
