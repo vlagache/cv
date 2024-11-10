@@ -6,6 +6,7 @@ export default defineConfig({
         globals: true,
         environment: 'jsdom', 
         alias: {
+            '@lib/': new URL('./src/lib/', import.meta.url).pathname,
             '@assets/': new URL('./src/assets/', import.meta.url).pathname
         },
         include: ['**/*.test.ts'],
@@ -21,6 +22,7 @@ export default defineConfig({
                 '**/*.server.ts',
                 'src/main.ts',
               ],
+            clean: false,
         },
         mockReset: true,
     },

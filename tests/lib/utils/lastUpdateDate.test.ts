@@ -12,7 +12,7 @@ describe("getLastUpdateDate", () => {
         const expectedDate = "07/05/1987"
 
         // When
-        const result = await(getLastUpdateDate())
+        const result = await getLastUpdateDate()
         // Then
         expect(result).toEqual(expectedDate)
     })

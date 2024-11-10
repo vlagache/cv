@@ -1,4 +1,4 @@
-<header class="sticky top-0 z-20">
+<header class="sticky top-0 z-20 print:hidden">
     <Navbar class="bg-transparent skeleton">
         <div
             id="debug"
@@ -29,8 +29,11 @@
                 </div>
             {/if}
         </div>
-        <div class="flex flex-row space-x-2 mr-10">
-            <button id="skeleton-button" on:click={testButton} class="w-7 h-7">
+        <div class="flex flex-row space-x-4 mr-10">
+            <button
+                id="skeleton-button"
+                on:click={handleSkeletonMode}
+                class="w-7 h-7">
                 <ColumnSolid
                     class="w-7 h-7 {skeletonButtonIsClicked
                         ? 'text-cat-red'
@@ -45,15 +48,32 @@
                     Active les bordures
                 </Tooltip>
             {/if}
-            <div>Bouton 2</div>
+            <div>
+                <button
+                    id="pdf-button"
+                    on:click={handlePdfDownload}
+                    class="w-7 h-7">
+                    <FilePdfSolid
+                        class="w-7 h-7 text-cat-surface2 hover:text-cat-flamingo" />
+                </button>
+                <Tooltip
+                    triggeredBy="#pdf-button"
+                    placement="bottom"
+                    class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
+                    arrow={false}>
+                    Télécharger ce CV au format PDF
+                </Tooltip>
+            </div>
             <div>Bouton 3</div>
         </div>
     </Navbar>
 </header>
 
 <main>
-    <div id="cv" class="container mx-auto flex flex-row skeleton">
-        <div id="left_part" class="w-2/3 mx-10 mt-20 skeleton">
+    <div
+        id="cv"
+        class="container mx-auto w-full flex flex-row skeleton print:m-0 print:max-w-none">
+        <div id="left_part" class="w-2/3 mx-10 mt-20 skeleton print:mr-15">
             <div id="me" class="inline-flex flex-col space-y-5 mb-20 skeleton">
                 <Heading
                     tag="h1"
@@ -98,10 +118,11 @@
                 </Mark>.
             </div>
         </div>
-        <div id="right_part" class="w-1/3 mt-14 mx-10 skeleton">
+        <div id="right_part" class="w-1/3 mt-14 mx-10 skeleton print:ml-15">
             <div id="photo" class="skeleton">
                 <svg
-                    class="stroke-cat-peach arrow_photo skeleton"
+                    id="arrow_photo"
+                    class="stroke-cat-peach skeleton"
                     viewBox="0 0 184 95"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -111,11 +132,14 @@
                         stroke-linecap="round"></path>
                 </svg>
                 <img
+                    id="me_photo"
                     src={photoDarkTheme}
                     alt="Me in light mode"
-                    class="w-48 h-48 rounded-full" />
+                    class="w-48 h-48 rounded-full print:w-44 print:h-44" />
             </div>
-            <div id="informations" class="mt-10 leading-loose text-lg skeleton">
+            <div
+                id="informations"
+                class="mt-10 leading-loose text-lg skeleton print:mt-16">
                 <p class="email">v1.lagache@gmail.com</p>
                 <p class="phone">06.86.56.07.77</p>
                 <p class="location">Bordeaux</p>
@@ -126,7 +150,7 @@
 
 <div class="min-h-[1000px] placeholder"></div>
 
-<footer class="border-t-2 border-cat-mauve mt-24">
+<footer class="border-t-2 border-cat-mauve mt-24 print:hidden">
     <Footer class="container mx-auto">
         <div class="py-2 bg-transparent flex flex-row justify-between">
             <div class="skills-icons flex items-center">
@@ -142,7 +166,7 @@
 </footer>
 
 <script lang="ts">
-    // import { downloadPDF } from "@lib/utils/pdf"
+    import { downloadCorrectPdf } from "@lib/utils/pdf"
     import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
     import { applyRandomBorderColor, toggleSkeleton } from "@lib/utils/skeleton"
     import { getCoveragePercentage } from "@lib/utils/coverage"
@@ -160,8 +184,10 @@
         ClockSolid,
         CheckCircleSolid,
         ColumnSolid,
+        FilePdfSolid,
     } from "flowbite-svelte-icons"
     import photoDarkTheme from "@assets/me_dark.png"
+    import { ThemeMode } from "@lib/enums"
 
     let lastUpdateDate: string | null = null
     let coverageDataPercentage: any = null
@@ -172,9 +198,13 @@
     let skeletonButtonIsClicked: boolean =
         import.meta.env.VITE_SKELETON_MODE_ACTIVATED === "true"
 
-    function testButton() {
+    function handleSkeletonMode() {
         skeletonButtonIsClicked = !skeletonButtonIsClicked
         toggleSkeleton()
+    }
+
+    function handlePdfDownload() {
+        downloadCorrectPdf(ThemeMode.DARK)
     }
 
     onMount(async () => {

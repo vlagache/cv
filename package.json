@@ -6,6 +6,7 @@
     "homepage": "https://vlagache.github.io/cv/",
     "scripts": {
         "dev": "vite",
+        "dev:pdf": "vite --mode pdf",
         "build": "vite build",
         "preview": "vite preview",
         "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json",
@@ -17,8 +18,7 @@
         "flowbite": "^2.5.2",
         "flowbite-svelte": "^0.47.3",
         "flowbite-svelte-icons": "^2.0.2",
-        "html2canvas-pro": "^1.5.8",
-        "html2pdf.js": "^0.10.2",
+        "puppeteer": "^23.7.1",
         "svelte": "^5.1.12",
         "tailwindcss": "^3.4.14",
         "tslib": "^2.8.0",
@@ -31,13 +31,13 @@
         "@types/node": "^22.9.0",
         "@vitest/coverage-v8": "^2.1.4",
         "autoprefixer": "^10.4.20",
+        "jsdom": "^25.0.1",
         "postcss": "^8.4.47",
         "prettier": "^3.3.3",
         "prettier-plugin-svelte": "^3.2.7",
         "svelte-check": "^4.0.5",
         "typescript": "~5.6.2",
         "vite": "^5.4.10",
-        "vitest": "^2.1.4",
-        "jsdom": "^25.0.1"
+        "vitest": "^2.1.4"
     }
 }

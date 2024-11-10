@@ -16,7 +16,7 @@ body {
     position: relative;
 }
 
-.arrow_photo {
+#arrow_photo {
     position: absolute;
     top: 20%;
     right: 98%;
@@ -30,4 +30,45 @@ body {
 
 .skeleton-disabled {
     @apply border-transparent;
+}
+
+/* @media print {
+    html {
+        font-size: 60%;
+    }
+    #me_photo {
+        width: 60%;
+        height: auto;
+    }
+    #arrow_photo {
+        transform: scale(0.6);
+        transform-origin: top right;
+    }
+} */
+
+@media print {
+    html {
+        font-size: 60%;
+    }
+
+    /* .container {
+        width: 100%;
+        max-width: none;
+    }
+
+    .mx-auto {
+        margin-left: 0;
+        margin-right: 0;
+    } */
+
+    /* #me_photo {
+        width: 60%;
+        height: auto;
+        transform-origin: top right;
+    } */
+
+    #arrow_photo {
+        transform: scale(0.6);
+        transform-origin: top right;
+    }
 }

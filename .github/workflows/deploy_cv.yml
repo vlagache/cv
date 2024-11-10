@@ -30,6 +30,30 @@ jobs:
             - name: Create last update date file 📄
               run: echo "$(TZ='Europe/Paris' date +"%Y-%m-%d")" > src/assets/data/last_update_date.txt
 
+            - name: Start server for pdf generation 🌐
+              run: |      
+                  npm run dev:pdf & 
+                  echo "SERVER_PID=$!" >> $GITHUB_ENV 
+                  echo "Server started with PID $SERVER_PID"
+
+            # - name: Wait for server to start ⏳
+            #   run: sleep 10
+
+            - name: Generate pdf dark theme 🌘
+              run: node scripts/generatePdf.js dark
+
+            # - name: Generate pdf dark theme 🌘
+            #   uses: tj-actions/puppeteer@v5
+            #   with:
+            #       files: |
+            #           scripts/generate_pdf.js dark
+
+            - name: Kill server 🚫
+              run: |
+                  echo "Attempt to kill server with PID $SERVER_PID"
+                  kill $SERVER_PID
+                  echo "Server killed"
+
             - name: Build the project 🔨
               run: npm run build
 
