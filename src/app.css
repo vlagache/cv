@@ -4,7 +4,7 @@
 
 html,
 body {
-    @apply bg-cat-crust text-cat-text min-h-screen;
+    @apply bg-cat-crust text-cat-text font-medium min-h-screen;
     font-family: theme("fontFamily.poppins");
 }
 

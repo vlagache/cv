@@ -1,5 +1,10 @@
-import type { Config } from "tailwindcss"
 import flowbitePlugin from "flowbite/plugin"
+import type { Config } from "tailwindcss"
+
+require("dotenv").config()
+
+const themeMode = process.env.THEME_MODE
+const themeName = themeMode === "dark" ? "macchiato" : "latte"
 
 export default {
     content: [
@@ -19,7 +24,7 @@ export default {
         flowbitePlugin,
         require("@catppuccin/tailwindcss")({
             prefix: "cat",
-            defaultFlavour: "macchiato",
+            defaultFlavour: themeName,
         }),
     ],
 } satisfies Config

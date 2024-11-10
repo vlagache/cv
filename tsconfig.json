@@ -19,7 +19,8 @@
         "paths": {
             "@lib/*": ["src/lib/*"],
             "@assets/*": ["src/assets/*"],
-            "@components/*": ["src/components/*"]
+            "@components/*": ["src/components/*"],
+            "@stores/*": ["src/stores/*"]
         }
     },
     "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],

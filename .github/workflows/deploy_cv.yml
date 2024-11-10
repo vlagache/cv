@@ -30,9 +30,9 @@ jobs:
             - name: Create last update date file 📄
               run: echo "$(TZ='Europe/Paris' date +"%Y-%m-%d")" > src/assets/data/last_update_date.txt
 
-            - name: Start server for pdf generation 🌐
+            - name: Start server in dark mode for pdf generation 🌐
               run: |      
-                  npm run dev:pdf & 
+                  THEME_MODE="dark" npm run dev:pdf & 
                   echo "SERVER_PID=$!" >> $GITHUB_ENV 
 
             - name: Generate pdf dark theme 🌘

@@ -7,8 +7,8 @@
                 <div>
                     <Badge
                         border
-                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire">
-                        <ClockSolid class="w-2.5 h-2.5 me-1.5" />
+                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire p-1">
+                        <Icon class="w-4 h-4 me-1.5" icon="lucide:clock" />
                         Dernière mise à jour : {lastUpdateDate}
                     </Badge>
                 </div>
@@ -17,8 +17,10 @@
                 <div>
                     <Badge
                         border
-                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire">
-                        <CheckCircleSolid class="w-2.5 h-2.5 me-1.5" />
+                        class="bg-cat-transparent text-cat-sapphire text-sm font-semibold border-cat-sapphire p-1">
+                        <Icon
+                            class="w-4 h-4 me-1.5"
+                            icon="lucide:circle-check" />
                         <A
                             href="https://github.com/vlagache/cv/tree/master/tests"
                             target="_blank"
@@ -30,31 +32,37 @@
             {/if}
         </div>
         <div class="flex flex-row space-x-4 mr-10">
-            <button
-                id="skeleton-button"
-                on:click={handleSkeletonMode}
-                class="w-7 h-7">
-                <ColumnSolid
-                    class="w-7 h-7 {skeletonButtonIsClicked
-                        ? 'text-cat-red'
-                        : 'text-cat-surface2 hover:text-cat-flamingo'}" />
-            </button>
-            {#if !skeletonButtonIsClicked}
-                <Tooltip
-                    triggeredBy="#skeleton-button"
-                    placement="bottom"
-                    class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
-                    arrow={false}>
-                    Active les bordures
-                </Tooltip>
-            {/if}
+            <div>
+                <button
+                    id="theme-button"
+                    on:click={toggleThemeMode}
+                    class="w-7 h-7">
+                    {#if $themeMode === ThemeMode.DARK}
+                        <Icon
+                            class="text-cat-sapphire"
+                            icon="lucide:moon"
+                            width="30"
+                            height="30" />
+                    {:else}
+                        <Icon
+                            class="text-cat-yellow"
+                            icon="lucide:sun"
+                            width="30"
+                            height="30" />
+                    {/if}
+                </button>
+            </div>
+
             <div>
                 <button
                     id="pdf-button"
                     on:click={handlePdfDownload}
                     class="w-7 h-7">
-                    <FilePdfSolid
-                        class="w-7 h-7 text-cat-surface2 hover:text-cat-flamingo" />
+                    <Icon
+                        icon="flowbite:file-pdf-solid"
+                        class="text-cat-surface2 hover:text-cat-flamingo"
+                        width="30"
+                        height="30" />
                 </button>
                 <Tooltip
                     triggeredBy="#pdf-button"
@@ -64,25 +72,46 @@
                     Télécharger ce CV au format PDF
                 </Tooltip>
             </div>
-            <div>Bouton 3</div>
+            <div>
+                <button
+                    id="skeleton-button"
+                    on:click={handleSkeletonMode}
+                    class="w-7 h-7">
+                    <Icon
+                        class="w-7 h-7 {skeletonButtonIsClicked
+                            ? 'text-cat-red'
+                            : 'text-cat-surface2 hover:text-cat-flamingo'}"
+                        icon="ic:twotone-border-clear"
+                        width="30"
+                        height="30" />
+                </button>
+                {#if !skeletonButtonIsClicked}
+                    <Tooltip
+                        triggeredBy="#skeleton-button"
+                        placement="bottom"
+                        class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
+                        arrow={false}>
+                        Active les bordures
+                    </Tooltip>
+                {/if}
+            </div>
         </div>
     </Navbar>
 </header>
 
 <script lang="ts">
+    import Icon from "@iconify/svelte"
+    import { ThemeMode } from "@lib/enums"
     import { downloadCorrectPdf } from "@lib/utils/pdf"
     import { toggleSkeleton } from "@lib/utils/skeleton"
-    import { ThemeMode } from "@lib/enums"
+    import { applyTheme } from "@lib/utils/theme"
+    import { themeMode } from "@stores/themeMode"
     import { A, Badge, Navbar, Tooltip } from "flowbite-svelte"
-    import {
-        ClockSolid,
-        CheckCircleSolid,
-        ColumnSolid,
-        FilePdfSolid,
-    } from "flowbite-svelte-icons"
+    import { onMount } from "svelte"
 
     export let lastUpdateDate
     export let coverageDataPercentage
+
 
     let skeletonButtonIsClicked: boolean =
         import.meta.env.VITE_SKELETON_MODE_ACTIVATED === "true"
@@ -95,4 +124,15 @@
     function handlePdfDownload() {
         downloadCorrectPdf(ThemeMode.DARK)
     }
+
+    function toggleThemeMode() {
+        $themeMode === ThemeMode.DARK
+            ? themeMode.set(ThemeMode.LIGHT)
+            : themeMode.set(ThemeMode.DARK)
+        applyTheme($themeMode)
+    }
+
+    onMount(() => {
+        console.log("Navbar mounted")
+    })
 </script>

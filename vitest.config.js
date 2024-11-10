@@ -9,6 +9,7 @@ export default defineConfig({
             '@lib/': new URL('./src/lib/', import.meta.url).pathname,
             '@assets/': new URL('./src/assets/', import.meta.url).pathname,
             '@components/': new URL('./src/components/', import.meta.url).pathname,
+            '@stores/': new URL('./src/stores/', import.meta.url).pathname,
         },
         include: ['**/*.test.ts'],
         coverage: {

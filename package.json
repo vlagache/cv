@@ -15,6 +15,7 @@
     },
     "dependencies": {
         "dayjs": "^1.11.13",
+        "dotenv": "^16.4.5",
         "flowbite": "^2.5.2",
         "flowbite-svelte": "^0.47.3",
         "flowbite-svelte-icons": "^2.0.2",
@@ -26,6 +27,7 @@
     },
     "devDependencies": {
         "@catppuccin/tailwindcss": "^0.1.6",
+        "@iconify/svelte": "^4.0.2",
         "@sveltejs/vite-plugin-svelte": "^4.0.0",
         "@tsconfig/svelte": "^5.0.4",
         "@types/node": "^22.9.0",

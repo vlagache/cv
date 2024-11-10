@@ -22,25 +22,24 @@
             </div>
             <div id="what_i_want" class="text-justify leading-loose skeleton">
                 Développeur passionné par l'innovation technologique, avec <Mark
-                    class="bg-cat-mauve/80 text-cat-base font-semibold"
+                    class="bg-cat-mauve/80 text-cat-crust"
                     >plus de quatre ans d'expérience en développement
                     d'applications web avec Python</Mark> et <Mark
-                    class="bg-cat-mauve/80 text-cat-base font-semibold"
+                    class="bg-cat-mauve/80 text-cat-crust"
                     >deux ans en développement frontend avec Angular.</Mark> Je suis
-                à la recherche d'un <Mark
-                    class="bg-cat-mauve/80 text-cat-base font-semibold"
+                à la recherche d'un <Mark class="bg-cat-mauve/80 text-cat-crust"
                     >poste de développeur backend Python,</Mark> tout en étant ouvert
                 à l'apprentissage d'autres langages ou d'autres domaines du développement
                 informatique (logiciel, embarqué, cloud, DevOps). Je dispose également
-                d'une <Mark class="bg-cat-mauve/80 text-cat-base font-semibold"
+                d'une <Mark class="bg-cat-mauve/80 text-cat-crust"
                     >formation en Intelligence Artificielle (IA) et Machine
                     Learning (ML),</Mark> ce qui me permet de comprendre les grands
                 principes et les problématiques clés de ces domaines.
-                <Mark class="bg-cat-mauve/80 text-cat-base font-semibold"
+                <Mark class="bg-cat-mauve/80 text-cat-crust"
                     >Intéressé par le MLOps,</Mark> je suis ouvert aux opportunités
                 dans ce secteur. J'aime approfondir mes expériences personnelles,
                 notamment à travers l'écriture d'articles, comme <Mark
-                    class="bg-cat-mauve/80 hover:bg-cat-flamingo text-cat-base font-semibold">
+                    class="bg-cat-mauve/80 hover:bg-cat-flamingo text-cat-crust">
                     <A
                         href="https://medium.com/@vlagache/ma-d%C3%A9couverte-de-neovim-c1c10e90ad6b"
                         target="_blank"
@@ -65,7 +64,9 @@
                 </svg>
                 <img
                     id="me_photo"
-                    src={photoDarkTheme}
+                    src={$themeMode === ThemeMode.DARK
+                        ? photoDarkTheme
+                        : photoLightTheme}
                     alt="Me in light mode"
                     class="w-48 h-48 rounded-full print:w-44 print:h-44" />
             </div>
@@ -86,16 +87,19 @@
 
 <script lang="ts">
     import photoDarkTheme from "@assets/me_dark.png"
+    import photoLightTheme from "@assets/me_light.png"
     import Footer from "@components/Footer.svelte"
     import Navbar from "@components/Navbar.svelte"
+    import { ThemeMode } from "@lib/enums"
     import { getCoveragePercentage } from "@lib/utils/coverage"
     import { getLastUpdateDate } from "@lib/utils/lastUpdateDate"
     import { applyRandomBorderColor } from "@lib/utils/skeleton"
+    import { themeMode } from "@stores/themeMode"
     import { A, Heading, Mark } from "flowbite-svelte"
     import { onMount } from "svelte"
 
-    let lastUpdateDate: string | null = null
-    let coverageDataPercentage: any = null
+    let lastUpdateDate: string | null = $state(null)
+    let coverageDataPercentage: any = $state(null)
 
     let name: string = "Vincent Lagache"
     let job: string = "Développeur"
@@ -103,6 +107,10 @@
     onMount(async () => {
         coverageDataPercentage = getCoveragePercentage()
         lastUpdateDate = getLastUpdateDate()
+    })
+
+    $effect(() => {
+        console.log("App mounted")
         applyRandomBorderColor()
     })
 </script>
