@@ -32,11 +32,13 @@ body {
 }
 
 mark {
-    @apply bg-cat-mauve/80 text-cat-crust px-2;
+    /* @apply bg-cat-sapphire/50 text-cat-subtext1 px-2; */
+    @apply bg-cat-sky bg-opacity-30 text-cat-text px-2;
 }
 
-mark.with-link {
-    @apply hover:bg-cat-flamingo;
+mark.with-link,
+.link {
+    @apply hover:text-cat-flamingo;
 }
 
 .skeleton {
@@ -51,40 +53,16 @@ mark.with-link {
     @apply tracking-[.25em] text-cat-peach text-base font-semibold mb-8;
 }
 
-/* @media print {
-    html {
-        font-size: 60%;
-    }
-    #me_photo {
-        width: 60%;
-        height: auto;
-    }
-    #arrow_photo {
-        transform: scale(0.6);
-        transform-origin: top right;
-    }
-} */
+.badge-project-skill {
+    @apply tracking-[.25em]
+     bg-transparent text-cat-lavender text-sm font-semibold
+     border-cat-lavender border-2 px-4 uppercase;
+}
 
 @media print {
     html {
         font-size: 55%;
     }
-
-    /* .container {
-        width: 100%;
-        max-width: none;
-    }
-
-    .mx-auto {
-        margin-left: 0;
-        margin-right: 0;
-    } */
-
-    /* #me_photo {
-        width: 60%;
-        height: auto;
-        transform-origin: top right;
-    } */
 
     #what_i_want {
         word-spacing: -0.05em;
@@ -100,10 +78,25 @@ mark.with-link {
         height: 14px;
     }
 
+    .achievement-icon {
+        width: 12px;
+        height: 12px;
+    }
+
     .skill-icon,
     .certification-icon,
     .online-presence-icon {
         width: 18px;
         height: 18px;
     }
+
+    /* .bottom-pdf-page {
+        background-color: red;
+        margin-bottom: 50mm;
+    } */
+
+    /* .top-pdf-page {
+        background-color: blue;
+        margin-top: 5mm;
+    } */
 }

@@ -23,6 +23,97 @@ main_content:
             ma série sur la découverte de Neovim
             </a>.
             </mark>
+    experiences:
+        title: EXPÉRIENCES
+        items:
+            - company: capgemini
+              company_display_name: Capgemini
+              contract: CDI
+              period: février 2023 - octobre 2024
+              location: Bordeaux
+              projects:
+                  - description:
+                        Développeur puis Tech Lead au sein de l'équipe du programme ANEF
+                        (Administration Numérique pour les Étrangers de France) du Ministère de l'Intérieur.
+                    achievements:
+                        - description:
+                              Encadrement de développeurs juniors (sorti d'études ou nouveaux sur le projet) pour de la montée
+                              en compétence technique, du support sur de la résolution d'anomalies ou du développement de nouvelles fonctionnalités.
+                        - description: Chiffrage d'une refonte d'une téléprocédure pour s'assurer de la conformité RG2A.
+                        - description:
+                              Développement d'une nouvelle fonctionnalité sur le portail usager (Python Flask & Angular), permettant aux demandeurs de la
+                              nationalité française de modifier les informations qu'ils ont initialement fournies, avant l'obtention de leur nationalité.
+                        - description:
+                              Refonte technique d'une téléprocédure existante (demande de nationalité) pour se conformer au Design System de
+                              l'État Français (systeme-de-design.gouv.fr)
+                    positions:
+                        - title: Responsable technique
+                          period: mars 2024 - octobre 2024
+                        - title: Développeur
+                          period: février 2023 - mars 2024
+                    skills:
+                        - Python
+                        - Angular
+                        - Docker
+                        - MongoDB
+                        - Chiffrages
+            - company: alegria
+              company_display_name: Alegria.group
+              contract: CDI
+              period: août 2022 - janvier 2023
+              location: Paris
+              projects:
+                  - achievements:
+                        - description:
+                              Déploiement d'une application web sur AWS via le CI/CD Gitlab ( <a href="https://gitlab.com/vlagache/api-aws-ec2" target="_blank"
+                              class="underline link">https://gitlab.com/vlagache/api-aws-ec2</a>).
+                        - description: Collecte de données automatisée
+                    positions:
+                        - title: Développeur
+                    skills:
+                        - Python
+                        - Gitlab CI
+                        - AWS Elastic Beanstalk
+                        - Grattage de données
+            - company: onepoint
+              company_display_name: Onepoint
+              contract: CDI
+              period: février 2020 - août 2022
+              location: Bordeaux
+              projects:
+                  - description:
+                        Développement d'un moteur de recommandation multi-marques et multi-pays pour le groupe Pierre Fabre. Le moteur permettra à terme d'obtenir
+                        des recommandations de produits pour 10 marques du groupe, dans 70 pays. À ce jour, deux marques du groupe sont en production.
+                    achievements:
+                        - description:
+                              Conception et implémentation d'une API Python (FastAPI) conteneurisée (Docker) et adossée à PosgreSQL et ElasticSearch.
+                              Couverture de tests de 80%
+                        - description:
+                              Développement d'un simulateur métier sur Streamlit permettant aux marques de tester les résultats des moteurs
+                              de recommandation avant la mise en production.
+                    positions:
+                        - title: Développeur / Référent technique
+                          period: octobre 2020 - juillet 2022
+                    skills:
+                        - Python
+                        - Docker
+                        - Postgresql
+                        - Elasticsearch
+                        - Streamlit
+                  - description: Développement back-end / front-end, Machine Learning & Data, Cloud, recherche sur le MLOps.
+                    achievements:
+                        - description:
+                              Ecriture d'un article sur le MLOPS après une expérimentation menée en interne avec un collègue.
+                              (<a href="https://www.groupeonepoint.com/fr/publications/mlops-orchestrer-les-acteurs-les-processus-et-les-outils-pour-passer-du-poc-a-la-production/" target="_blank"
+                              class="underline link">https://www.groupeonepoint.com/fr/publications/mlops-orchestrer-les-acteurs-les-processus-et-les-outils-pour-passer-du-poc-a-la-production/</a>).
+                    positions:
+                        - title: Développeur DATA / IA
+                          period: février 2020 - mai 2021
+                    skills:
+                        - Python
+                        - Azure ML
+                        - MLOps
+                        - Grattage de données
     informations:
         email: v1.lagache@gmail.com
         phone: "06.86.56.07.77"

@@ -7,7 +7,7 @@
                 <div>
                     <Badge
                         border
-                        class="bg-cat-transparent text-cat-lavender text-sm font-semibold border-cat-lavender p-1">
+                        class="bg-transparent text-cat-lavender text-sm font-semibold border-cat-lavender p-1">
                         <Icon class="w-4 h-4 me-1.5" icon="lucide:clock" />
                         {data.last_update}
                         {lastUpdateDate}
@@ -18,7 +18,7 @@
                 <div>
                     <Badge
                         border
-                        class="bg-cat-transparent text-cat-lavender text-sm font-semibold border-cat-lavender p-1">
+                        class="bg-transparent text-cat-lavender text-sm font-semibold border-cat-lavender p-1">
                         <Icon
                             class="w-4 h-4 me-1.5"
                             icon="lucide:circle-check" />

@@ -22,13 +22,27 @@
             </div>
             <div
                 id="what_i_want"
-                class="text-lg text-justify leading-loose skeleton">
+                class="text-lg text-justify leading-loose skeleton mb-20">
                 {@html data.me.what_i_want}
+            </div>
+            <div id="experiences" class="skeleton">
+                <p class="section-title">{data.experiences.title}</p>
+                <div class="space-y-16">
+                    {#each data.experiences.items as experience}
+                        <Job
+                            company={experience.company}
+                            companyDisplayName={experience.company_display_name}
+                            contract={experience.contract}
+                            period={experience.period}
+                            location={experience.location}
+                            projects={experience.projects} />
+                    {/each}
+                </div>
             </div>
         </div>
         <div
             id="right_part"
-            class="w-1/4 mt-14 mx-10 grid gap-y-14 skeleton print:ml-15">
+            class="w-1/4 mt-14 mx-10 space-y-14 skeleton print:ml-15">
             <div id="photo" class="skeleton">
                 <svg
                     id="arrow_photo"
@@ -149,6 +163,7 @@
     import { onMount } from "svelte"
     import { get } from "svelte/store"
 
+    import Job from "@components/Job.svelte"
     import OnlineProfile from "@components/OnlineProfile.svelte"
     import { cvContent } from "@stores/cvContent"
 
@@ -170,6 +185,7 @@
         coverageDataPercentage = getCoveragePercentage()
         lastUpdateDate = getLastUpdateDate()
         applyRandomBorderColor()
+        console.log(data)
     })
 </script>
 
