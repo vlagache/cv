@@ -20,8 +20,10 @@
             "@lib/*": ["src/lib/*"],
             "@assets/*": ["src/assets/*"],
             "@components/*": ["src/components/*"],
-            "@stores/*": ["src/stores/*"]
-        }
+            "@stores/*": ["src/stores/*"],
+            "@static/*": ["src/static/*"]
+        },
+        "types": ["@modyfi/vite-plugin-yaml/modules"]
     },
     "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
     "references": [{ "path": "./tsconfig.node.json" }]

@@ -31,12 +31,24 @@ body {
     height: auto;
 }
 
+mark {
+    @apply bg-cat-mauve/80 text-cat-crust px-2;
+}
+
+mark.with-link {
+    @apply hover:bg-cat-flamingo;
+}
+
 .skeleton {
     @apply border-2;
 }
 
 .skeleton-disabled {
     @apply border-transparent;
+}
+
+.section-title {
+    @apply tracking-[.25em] text-cat-peach text-base font-semibold mb-8;
 }
 
 /* @media print {
@@ -55,7 +67,7 @@ body {
 
 @media print {
     html {
-        font-size: 60%;
+        font-size: 55%;
     }
 
     /* .container {
@@ -81,5 +93,15 @@ body {
     #arrow_photo {
         transform: scale(0.6);
         transform-origin: top right;
+    }
+
+    .information-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .skill-icon {
+        width: 18px;
+        height: 18px;
     }
 }

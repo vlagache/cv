@@ -5,51 +5,30 @@
     <div
         id="cv"
         class="container mx-auto w-full flex flex-row skeleton print:m-0 print:max-w-none">
-        <div id="left_part" class="w-2/3 mx-10 mt-20 skeleton print:mr-15">
+        <div id="left_part" class="w-3/4 mx-10 mt-20 skeleton print:mr-15">
             <div id="me" class="inline-flex flex-col space-y-5 mb-20 skeleton">
                 <Heading
                     tag="h1"
                     color="text-cat-text"
                     customSize="text-5xl font-extrabold">
-                    {name}
+                    {data.me.name}
                 </Heading>
                 <Heading
                     tag="h2"
                     color="text-cat-peach"
                     customSize="font-semibold text-4xl jetbrains_font tracking-widest">
-                    {job}
+                    {data.me.title}
                 </Heading>
             </div>
-            <div id="what_i_want" class="text-justify leading-loose skeleton">
-                Développeur passionné par l'innovation technologique, avec <Mark
-                    class="bg-cat-mauve/80 text-cat-crust"
-                    >plus de quatre ans d'expérience en développement
-                    d'applications web avec Python</Mark> et <Mark
-                    class="bg-cat-mauve/80 text-cat-crust"
-                    >deux ans en développement frontend avec Angular.</Mark> Je suis
-                à la recherche d'un <Mark class="bg-cat-mauve/80 text-cat-crust"
-                    >poste de développeur backend Python,</Mark> tout en étant ouvert
-                à l'apprentissage d'autres langages ou d'autres domaines du développement
-                informatique (logiciel, embarqué, cloud, DevOps). Je dispose également
-                d'une <Mark class="bg-cat-mauve/80 text-cat-crust"
-                    >formation en Intelligence Artificielle (IA) et Machine
-                    Learning (ML),</Mark> ce qui me permet de comprendre les grands
-                principes et les problématiques clés de ces domaines.
-                <Mark class="bg-cat-mauve/80 text-cat-crust"
-                    >Intéressé par le MLOps,</Mark> je suis ouvert aux opportunités
-                dans ce secteur. J'aime approfondir mes expériences personnelles,
-                notamment à travers l'écriture d'articles, comme <Mark
-                    class="bg-cat-mauve/80 hover:bg-cat-flamingo text-cat-crust">
-                    <A
-                        href="https://medium.com/@vlagache/ma-d%C3%A9couverte-de-neovim-c1c10e90ad6b"
-                        target="_blank"
-                        class="underline"
-                        >ma série sur la découverte de Neovim
-                    </A>.
-                </Mark>
+            <div
+                id="what_i_want"
+                class="text-lg text-justify leading-loose skeleton">
+                {@html data.me.what_i_want}
             </div>
         </div>
-        <div id="right_part" class="w-1/3 mt-14 mx-10 skeleton print:ml-15">
+        <div
+            id="right_part"
+            class="w-1/4 mt-14 mx-10 grid gap-y-14 skeleton print:ml-15">
             <div id="photo" class="skeleton">
                 <svg
                     id="arrow_photo"
@@ -70,12 +49,40 @@
                     alt="Me in light mode"
                     class="w-48 h-48 rounded-full print:w-44 print:h-44" />
             </div>
-            <div
-                id="informations"
-                class="mt-10 leading-loose text-lg skeleton print:mt-16">
-                <p class="email">v1.lagache@gmail.com</p>
-                <p class="phone">06.86.56.07.77</p>
-                <p class="location">Bordeaux</p>
+            <div id="informations" class="leading-loose text-xl skeleton">
+                <p id="email" class="flex items-center space-x-2">
+                    <Icon
+                        icon="ic:outline-email"
+                        width="24"
+                        height="24"
+                        class="information-icon" />
+                    <span>{data.informations.email}</span>
+                </p>
+                <p id="phone" class="flex items-center space-x-2">
+                    <Icon
+                        icon="lucide:phone"
+                        width="24"
+                        height="24"
+                        class="information-icon" />
+                    <span>{data.informations.phone}</span>
+                </p>
+                <p id="location" class="flex items-center space-x-2">
+                    <Icon
+                        icon="lucide:map-pin"
+                        width="24"
+                        height="24"
+                        class="information-icon" />
+                    <span>{data.informations.location}</span>
+                </p>
+            </div>
+            <div id="skills" class="space-y-2 text-xl leading-loose">
+                <p class="section-title">COMPETENCES</p>
+                {#each data.informations.skills as skill}
+                    <SkillWithIcon
+                        icon={skill.icon}
+                        label={skill.label}
+                        className={skill.class_name} />
+                {/each}
             </div>
         </div>
     </div>
@@ -98,6 +105,7 @@
     import photoLightTheme from "@assets/me_light.png"
     import Footer from "@components/Footer.svelte"
     import Navbar from "@components/Navbar.svelte"
+    import SkillWithIcon from "@components/SkillWithIcon.svelte"
     import Icon from "@iconify/svelte"
     import { ThemeMode } from "@lib/enums"
     import { getCoveragePercentage } from "@lib/utils/coverage"
@@ -105,15 +113,17 @@
     import { applyRandomBorderColor } from "@lib/utils/skeleton"
     import { scrollY } from "@stores/scroll"
     import { themeMode } from "@stores/themeMode"
-    import { A, Heading, Mark } from "flowbite-svelte"
+    import { Heading } from "flowbite-svelte"
     import { onMount } from "svelte"
+    import { get } from "svelte/store"
+
+    import { cvContent } from "@stores/cvContent"
 
     let lastUpdateDate: string | null = $state(null)
     let coverageDataPercentage: any = $state(null)
-
-    let name: string = "Vincent Lagache"
-    let job: string = "Développeur"
     let buttonScrollToTopisVisible: boolean = $state(false)
+
+    let data = get(cvContent).main_content
 
     $effect(() => {
         buttonScrollToTopisVisible = $scrollY > window.innerHeight

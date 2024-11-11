@@ -1,0 +1,56 @@
+navbar:
+    last_update: "Dernière mise à jour :"
+    code_coverage: "Couverture de tests :"
+    tooltips:
+        download_cv: "Télécharger ce CV au format PDF"
+        skeleton: "Active les bordures"
+
+main_content:
+    me:
+        name: Vincent Lagache
+        title: Développeur
+        what_i_want: Développeur passionné par l'innovation technologique, avec
+            <mark>plus de quatre ans d'expérience en développement d'applications web avec Python</mark> et
+            <mark>deux ans en développement frontend avec Angular.</mark> Je suis à la recherche d'un
+            <mark>poste de développeur backend Python,</mark> tout en étant ouvert à l'apprentissage
+            d'autres langages ou d'autres domaines du développement informatique (logiciel, embarqué, cloud, DevOps). Je dispose également d'une
+            <mark>formation en Intelligence Artificielle (IA) et Machine Learning (ML),</mark>
+            ce qui me permet de comprendre les grands principes et les problématiques clés de ces domaines.
+            <mark>Intéressé par le MLOps,</mark> je suis ouvert aux opportunités dans ce secteur.
+            J'aime approfondir mes expériences personnelles, notamment à travers l'écriture d'articles, comme
+            <mark class="with-link">
+            <a href="https://medium.com/@vlagache/ma-d%C3%A9couverte-de-neovim-c1c10e90ad6b" target="_blank" class="underline">
+            ma série sur la découverte de Neovim
+            </a>.
+            </mark>
+    informations:
+        email: v1.lagache@gmail.com
+        phone: "06.86.56.07.77"
+        location: Bordeaux
+        informations:
+        skills:
+            - label: "Python (FastApi, Flask)"
+              icon: "devicon:python"
+            - label: "Angular"
+              icon: "devicon:angular"
+            - label: "MongoDB"
+              icon: "devicon:mongodb"
+            - label: "Docker"
+              icon: "devicon:docker"
+            - label: "Elasticsearch"
+              icon: "devicon:elasticsearch"
+            - label: "PostgreSQL"
+              icon: "devicon:postgresql"
+            - label: "CI/CD Gitlab"
+              icon: "devicon:gitlab"
+            - label: "Github Actions"
+              icon: "devicon:githubactions"
+            - label: "AWS (EC2, RDS, S3)"
+              icon: "simple-icons:amazonaws"
+              class_name: "text-cat-yellow"
+            - label: "Azure (ML, Functions, Storage)"
+              icon: "devicon:azure"
+            - label: "Machine Learning & IA"
+              icon: "healthicons:artificial-intelligence"
+              class_name: "text-cat-sapphire"
+footer:

@@ -9,7 +9,8 @@
                         border
                         class="bg-cat-transparent text-cat-lavender text-sm font-semibold border-cat-lavender p-1">
                         <Icon class="w-4 h-4 me-1.5" icon="lucide:clock" />
-                        Dernière mise à jour : {lastUpdateDate}
+                        {data.last_update}
+                        {lastUpdateDate}
                     </Badge>
                 </div>
             {/if}
@@ -25,8 +26,8 @@
                             href="https://github.com/vlagache/cv/tree/master/tests"
                             target="_blank"
                             class="underline hover:text-cat-flamingo"
-                            >Couverture de tests : {coverageDataPercentage}%
-                        </A>.
+                            >{data.code_coverage} {coverageDataPercentage}%
+                        </A>
                     </Badge>
                 </div>
             {/if}
@@ -69,7 +70,7 @@
                     placement="bottom"
                     class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
                     arrow={false}>
-                    Télécharger ce CV au format PDF
+                    {data.tooltips.download_cv}
                 </Tooltip>
             </div>
             <div>
@@ -91,7 +92,7 @@
                         placement="bottom"
                         class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
                         arrow={false}>
-                        Active les bordures
+                        {data.tooltips.skeleton}
                     </Tooltip>
                 {/if}
             </div>
@@ -108,12 +109,17 @@
     import { themeMode } from "@stores/themeMode"
     import { A, Badge, Navbar, Tooltip } from "flowbite-svelte"
     import { onMount } from "svelte"
+    import { get } from "svelte/store"
+
+    import { cvContent } from "@stores/cvContent"
 
     export let lastUpdateDate
     export let coverageDataPercentage
 
     let skeletonButtonIsClicked: boolean =
         import.meta.env.VITE_SKELETON_MODE_ACTIVATED === "true"
+
+    let data = get(cvContent).navbar
 
     function handleSkeletonMode() {
         skeletonButtonIsClicked = !skeletonButtonIsClicked
