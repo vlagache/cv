@@ -1,5 +1,9 @@
 <p class="flex items-center space-x-6 skeleton">
-    <Icon icon={icon} width="30" height="30" class={`skill-icon ${className}`} />
+    <Icon
+        icon={icon}
+        width="30"
+        height="30"
+        class={`skill-icon shrink-0 ${className}`} />
     <span>{label}</span>
 </p>
 

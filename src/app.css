@@ -100,7 +100,9 @@ mark.with-link {
         height: 14px;
     }
 
-    .skill-icon {
+    .skill-icon,
+    .certification-icon,
+    .online-presence-icon {
         width: 18px;
         height: 18px;
     }

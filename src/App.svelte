@@ -56,7 +56,8 @@
                         width="24"
                         height="24"
                         class="information-icon" />
-                    <span>{data.informations.email}</span>
+                    <a href={`mailto:${data.informations.email}`}
+                        >{data.informations.email}</a>
                 </p>
                 <p id="phone" class="flex items-center space-x-2">
                     <Icon
@@ -75,13 +76,44 @@
                     <span>{data.informations.location}</span>
                 </p>
             </div>
-            <div id="skills" class="space-y-2 text-xl leading-loose">
-                <p class="section-title">COMPETENCES</p>
-                {#each data.informations.skills as skill}
+            <div id="skills" class="space-y-2 text-xl leading-loose skeleton">
+                <p class="section-title">{data.informations.skills.title}</p>
+                {#each data.informations.skills.items as skill}
                     <SkillWithIcon
                         icon={skill.icon}
                         label={skill.label}
                         className={skill.class_name} />
+                {/each}
+            </div>
+            <!-- TODO : Make a component when there is more than one certification -->
+            <div
+                id="certifications"
+                class="space-y-2 text-xl leading-loose skeleton">
+                <p class="section-title">
+                    {data.informations.certifications.title}
+                </p>
+                {#each data.informations.certifications.items as certification}
+                    <p class="flex items-center space-x-6 skeleton">
+                        <Icon
+                            icon={certification.icon}
+                            width="30"
+                            height="30"
+                            class="shrink-0 certification-icon" />
+                        <span>{certification.label}</span>
+                    </p>
+                {/each}
+            </div>
+            <div
+                id="online_presence"
+                class="space-y-2 text-xl leading-loose skeleton">
+                <p class="section-title">
+                    {data.informations.online_presence.title}
+                </p>
+                {#each data.informations.online_presence.items as onlineProfile}
+                    <OnlineProfile
+                        icon={onlineProfile.icon}
+                        label={onlineProfile.label}
+                        href={onlineProfile.href} />
                 {/each}
             </div>
         </div>
@@ -117,6 +149,7 @@
     import { onMount } from "svelte"
     import { get } from "svelte/store"
 
+    import OnlineProfile from "@components/OnlineProfile.svelte"
     import { cvContent } from "@stores/cvContent"
 
     let lastUpdateDate: string | null = $state(null)

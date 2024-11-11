@@ -27,30 +27,51 @@ main_content:
         email: v1.lagache@gmail.com
         phone: "06.86.56.07.77"
         location: Bordeaux
-        informations:
         skills:
-            - label: "Python (FastApi, Flask)"
-              icon: "devicon:python"
-            - label: "Angular"
-              icon: "devicon:angular"
-            - label: "MongoDB"
-              icon: "devicon:mongodb"
-            - label: "Docker"
-              icon: "devicon:docker"
-            - label: "Elasticsearch"
-              icon: "devicon:elasticsearch"
-            - label: "PostgreSQL"
-              icon: "devicon:postgresql"
-            - label: "CI/CD Gitlab"
-              icon: "devicon:gitlab"
-            - label: "Github Actions"
-              icon: "devicon:githubactions"
-            - label: "AWS (EC2, RDS, S3)"
-              icon: "simple-icons:amazonaws"
-              class_name: "text-cat-yellow"
-            - label: "Azure (ML, Functions, Storage)"
-              icon: "devicon:azure"
-            - label: "Machine Learning & IA"
-              icon: "healthicons:artificial-intelligence"
-              class_name: "text-cat-sapphire"
+            title: COMPÉTENCES
+            items:
+                - label: "Python (FastApi, Flask)"
+                  icon: "devicon:python"
+                - label: "Angular"
+                  icon: "devicon:angular"
+                - label: "MongoDB"
+                  icon: "devicon:mongodb"
+                - label: "Docker"
+                  icon: "devicon:docker"
+                - label: "Elasticsearch"
+                  icon: "devicon:elasticsearch"
+                - label: "PostgreSQL"
+                  icon: "devicon:postgresql"
+                - label: "Gitlab CI"
+                  icon: "devicon:gitlab"
+                - label: "Github Actions"
+                  icon: "devicon:githubactions"
+                - label: "AWS (Elastic Beanstalk, EC2, RDS, S3)"
+                  icon: "simple-icons:amazonaws"
+                  class_name: "text-cat-yellow"
+                - label: "Azure (ML, Functions, Storage)"
+                  icon: "devicon:azure"
+                - label: "Machine Learning & IA"
+                  icon: "healthicons:artificial-intelligence"
+                  class_name: "text-cat-sapphire"
+        certifications:
+            title: CERTIFICATIONS
+            items:
+                - label: "Azure DP-100: Azure Data Scientist Associate"
+                  icon: "devicon:azure"
+        online_presence:
+            title: PRÉSENCE EN LIGNE
+            items:
+                - label: github.com/vlagache
+                  icon: lucide:github
+                  href: https://github.com/vlagache
+                - label: gitlab.com/vlagache
+                  icon: lucide:gitlab
+                  href: https://gitlab.com/vlagache
+                - label: medium.com/@vlagache
+                  icon: hugeicons:medium
+                  href: https://medium.com/@vlagache
+                - label: /vincent-lagache
+                  icon: mdi:linkedin
+                  href: https://www.linkedin.com/in/vincent-lagache/
 footer:
