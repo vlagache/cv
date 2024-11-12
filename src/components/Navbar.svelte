@@ -68,7 +68,9 @@
                 <Tooltip
                     triggeredBy="#pdf-button"
                     placement="bottom"
-                    class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
+                    class="{$scrollY > 40
+                        ? 'mt-4'
+                        : ''} bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
                     arrow={false}>
                     {data.tooltips.download_cv}
                 </Tooltip>
@@ -90,7 +92,9 @@
                     <Tooltip
                         triggeredBy="#skeleton-button"
                         placement="bottom"
-                        class="bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
+                        class="{$scrollY > 40
+                            ? 'mt-4'
+                            : ''} bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
                         arrow={false}>
                         {data.tooltips.skeleton}
                     </Tooltip>
