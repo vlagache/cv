@@ -5,6 +5,7 @@ export type Achievement = {
 export type Position = {
     title: string
     period: string
+    contractType?: string
 }
 
 export type Project = {
@@ -17,9 +18,18 @@ export type Project = {
 export type Experience = {
     company: string
     companyDisplayName: string
-    logo_path: string
     contract: string
     period: string
     location: string
     projects: Project[]
+}
+
+export type Formation = {
+    title: string
+    school: string
+    period: string
+    location: string
+    description: string
+    achievement: string
+    skills: string[]
 }

@@ -5,8 +5,10 @@
     <div
         id="cv"
         class="container mx-auto w-full flex flex-row skeleton print:m-0 print:max-w-none">
-        <div id="left_part" class="w-3/4 mx-10 mt-20 skeleton print:mr-15">
-            <div id="me" class="inline-flex flex-col space-y-5 mb-20 skeleton">
+        <div
+            id="left_part"
+            class="w-3/4 mx-10 mt-20 space-y-20 skeleton print:mr-15">
+            <div id="me" class="inline-flex flex-col space-y-5 skeleton">
                 <Heading
                     tag="h1"
                     color="text-cat-text"
@@ -22,7 +24,7 @@
             </div>
             <div
                 id="what_i_want"
-                class="text-lg text-justify leading-loose skeleton mb-20">
+                class="text-lg text-justify leading-loose skeleton">
                 {@html data.me.what_i_want}
             </div>
             <div id="experiences" class="skeleton">
@@ -31,7 +33,7 @@
                     {#each data.experiences.items as experience}
                         <Job
                             company={experience.company}
-                            companyDisplayName={experience.company_display_name}
+                            companyDisplayName={experience.companyDisplayName}
                             contract={experience.contract}
                             period={experience.period}
                             location={experience.location}
@@ -39,6 +41,22 @@
                     {/each}
                 </div>
             </div>
+            <div id="formations" class="skeleton break-after-page">
+                <p class="section-title">{data.formations.title}</p>
+                <div class="space-y-16">
+                    {#each data.formations.items as formation}
+                        <Formation
+                            title={formation.title}
+                            school={formation.school}
+                            period={formation.period}
+                            location={formation.location}
+                            description={formation.description}
+                            achievement={formation.achievement}
+                            skills={formation.skills} />
+                    {/each}
+                </div>
+            </div>
+            <div>RECOMMANDATIONS DE GEGE !!</div>
         </div>
         <div
             id="right_part"
@@ -163,6 +181,7 @@
     import { onMount } from "svelte"
     import { get } from "svelte/store"
 
+    import Formation from "@components/Formation.svelte"
     import Job from "@components/Job.svelte"
     import OnlineProfile from "@components/OnlineProfile.svelte"
     import { cvContent } from "@stores/cvContent"

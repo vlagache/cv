@@ -27,7 +27,7 @@ main_content:
         title: EXPÉRIENCES
         items:
             - company: capgemini
-              company_display_name: Capgemini
+              companyDisplayName: Capgemini
               contract: CDI
               period: février 2023 - octobre 2024
               location: Bordeaux
@@ -58,7 +58,7 @@ main_content:
                         - MongoDB
                         - Chiffrages
             - company: alegria
-              company_display_name: Alegria.group
+              companyDisplayName: Alegria.group
               contract: CDI
               period: août 2022 - janvier 2023
               location: Paris
@@ -76,7 +76,7 @@ main_content:
                         - AWS Elastic Beanstalk
                         - Grattage de données
             - company: onepoint
-              company_display_name: Onepoint
+              companyDisplayName: Onepoint
               contract: CDI
               period: février 2020 - août 2022
               location: Bordeaux
@@ -109,11 +109,42 @@ main_content:
                     positions:
                         - title: Développeur DATA / IA
                           period: février 2020 - mai 2021
+                          contractType: Alternance
                     skills:
                         - Python
                         - Azure ML
                         - MLOps
                         - Grattage de données
+    formations:
+        title: FORMATIONS
+        items:
+            - title: Développeur DATA / IA
+              school: Ecole IA Microsoft x Simplon
+              period: 2019 - 2021
+              location: Bordeaux
+              description: <a href="https://www.simplon.co/data-ia/developpeur-ia" target="_blank"
+                           class="underline link">Formation de 19 mois dont 15 mois en alternance afin de se former aux métiers de la Data et de l'IA.</a>
+              achievement: Réalisation d'un projet à soutenir devant un jury à la fin de la formation. Mon projet se proposait d'essayer de prédire des temps de trajet à vélo
+                      dans une sortie sportive. Le code est visible ici <a href="https://github.com/vlagache/cycling_travel_time/" target="_blank"
+                      class="underline link">https://github.com/vlagache/cycling_travel_time/</a>
+              skills:
+                  - Python
+                  - Scikit-learn
+                  - Docker
+                  - SQL
+            - title: Développeur Web - RNCP Niveau III (Bac+2)
+              school: Openclassrooms
+              period: 2018 - 2019
+              location: A distance
+              description: Formation pour apprendre le métier de développeur web.
+              achievement: "Le but de cette formation était de réaliser cinq projets (intégration web, wordpress, javascript, php, projet final libre) à rendre et à défendre devant un jury. Mon projet final était la
+                    création d'une application mobile en utilisant JS/HTML/CSS via Apache Cordova et un serveur en PHP (Symfony). Son but était d'alerter des proches
+                    en cas de problème (accident) dans une sortie sportive.Le rendu de chacun des projets est visible ici : 
+                    <a href='https://github.com/vlagache' target='_blank' class='underline link'>https://github.com/vlagache</a>"
+              skills:
+                  - Php
+                  - Javascript
+                  - SQL
     informations:
         email: v1.lagache@gmail.com
         phone: "06.86.56.07.77"

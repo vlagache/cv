@@ -9,16 +9,14 @@
             <div id="company-name" class="font-semibold">
                 {companyDisplayName}
             </div>
-            <div
-                id="employement-period"
-                class="text-base font-extralight text-cat-overlay1">
+            <div id="employement-period" class="text-base text-cat-overlay1">
                 {contract} • {period} • {location}
             </div>
         </div>
     </div>
     <div id="projects" class="space-y-10">
         {#each projects as project}
-            <div id="project" class="space-y-4 skeleton">
+            <div id="project" class="space-y-6 skeleton">
                 {#if project.positions.length === 1}
                     <div id="position" class="space-y-2">
                         <div class="font-semibold">
@@ -27,6 +25,9 @@
                         {#if projects.length > 1}
                             <div
                                 class="text-base font-extralight text-cat-overlay1">
+                                {#if project.positions[0].contractType}
+                                    {project.positions[0].contractType} •
+                                {/if}
                                 {project.positions[0].period}
                             </div>
                         {/if}
@@ -58,7 +59,7 @@
                                 width="20"
                                 height="20" />
                             <span
-                                class="mt-[-0.4em] skeleton align-text-top text-base test-justify leading-loose"
+                                class="mt-[-0.4em] skeleton text-base test-justify leading-loose"
                                 >{@html achievement.description}</span>
                         </p>
                     {/each}
