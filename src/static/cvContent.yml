@@ -145,6 +145,22 @@ main_content:
                   - Php
                   - Javascript
                   - SQL
+    feedbacks:
+        title: RECOMMANDATIONS
+        items:
+            - authorName: Jérôme Fillioux
+              linkedin: "https://www.linkedin.com/in/j%C3%A9r%C3%B4me-fillioux-10722586/"
+              company: "Onepoint"
+              title: "Leader Architecture & Pilote Pole R&D"
+              content: "J'ai eu l'opportunité de travailler avec Vincent Lagache au sein de Onepoint pendant trois ans.
+                Vincent s'est rapidement distingué par son sérieux et son implication dans les projets qui lui étaient confiés. Il possède en effet un véritable
+                sens des responsabilités et s'investit toujours avec rigueur dans les tâches qui lui sont assignées. Il cherche constamment à comprendre en profondeur
+                les technologies et les processus qu'il utilise, ce qui lui permet de résoudre des problèmes complexes de manière autonome et réfléchie.
+                Cette approche lui confère une solide maitrise de son environnement technique et l'amène à proposer des solutions pertinentes. Sa curiosité intellectuelle,
+                associée à une volonté dapprendre, en font un collaborateur polyvalent et qui ne craint pas les sujets nouveaux. Il a le gout de se former en permanence
+                et rechercher les échanges avec les experts qui l'entourent pour progresser à leur contact. Enfin, Vincent a fait preuve d'une bonne pédagogie tout au
+                long de notre collaboration. Il sait partager ses connaissances de manière claire et méthodique, facilitant ainsi la montée en compétence de ses collègues.
+                Je recommande Vincent pour tout poste où ses compétences techniques, son sens de l'analyse et sa capacité à s'investir pleinement seront appréciés."
     informations:
         email: v1.lagache@gmail.com
         phone: "06.86.56.07.77"

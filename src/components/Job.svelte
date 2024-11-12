@@ -1,4 +1,6 @@
 <div class="skeleton text-lg space-y-8">
+    <!-- TODO: I can cause the page change on the pdf here because I know
+    this is where it cuts but if the content changes I'll have to change that. -->
     <div
         id="company-header"
         class="flex space-x-8 {company === 'onepoint'

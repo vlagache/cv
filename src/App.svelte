@@ -56,7 +56,21 @@
                     {/each}
                 </div>
             </div>
-            <div>RECOMMANDATIONS DE GEGE !!</div>
+            <div id="recommendations" class="skeleton">
+                <p class="section-title">{data.feedbacks.title}</p>
+                <div class="space-y-16">
+                    {#each data.feedbacks.items as feedback}
+                        <div class="skeleton">
+                            <Feedback
+                                authorName={feedback.authorName}
+                                linkedin={feedback.linkedin}
+                                company={feedback.company}
+                                title={feedback.title}
+                                content={feedback.content} />
+                        </div>
+                    {/each}
+                </div>
+            </div>
         </div>
         <div
             id="right_part"
@@ -117,7 +131,7 @@
                         className={skill.class_name} />
                 {/each}
             </div>
-            <!-- TODO : Make a component when there is more than one certification -->
+            <!-- TODO: Make a component when there is more than one certification -->
             <div
                 id="certifications"
                 class="space-y-2 text-xl leading-loose skeleton">
@@ -152,8 +166,6 @@
     </div>
 </main>
 
-<div class="min-h-[1300px] placeholder"></div>
-
 {#if buttonScrollToTopisVisible}
     <button
         onclick={scrollToTop}
@@ -181,6 +193,7 @@
     import { onMount } from "svelte"
     import { get } from "svelte/store"
 
+    import Feedback from "@components/Feedback.svelte"
     import Formation from "@components/Formation.svelte"
     import Job from "@components/Job.svelte"
     import OnlineProfile from "@components/OnlineProfile.svelte"

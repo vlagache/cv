@@ -33,3 +33,11 @@ export type Formation = {
     achievement: string
     skills: string[]
 }
+
+export type Feedback = {
+    authorName: string
+    linkedin: string
+    title: string
+    company: string
+    content: string
+}

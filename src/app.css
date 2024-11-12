@@ -73,7 +73,8 @@ mark.with-link,
         transform-origin: top right;
     }
 
-    .information-icon {
+    .information-icon,
+    .feedback-icon {
         width: 14px;
         height: 14px;
     }
@@ -88,5 +89,9 @@ mark.with-link,
     .online-presence-icon {
         width: 18px;
         height: 18px;
+    }
+
+    .badge-project-skill {
+        border-width: 1px;
     }
 }
