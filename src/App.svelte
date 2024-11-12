@@ -2,9 +2,7 @@
     lastUpdateDate={lastUpdateDate}
     coverageDataPercentage={coverageDataPercentage} />
 <main>
-    <div
-        id="cv"
-        class="container mx-auto w-full flex flex-row skeleton print:m-0 print:max-w-none">
+    <div id="cv" class="container mx-auto w-full flex flex-row skeleton mb-20">
         <div
             id="left_part"
             class="w-3/4 mx-10 mt-20 space-y-20 skeleton print:mr-15">
@@ -162,6 +160,12 @@
                         href={onlineProfile.href} />
                 {/each}
             </div>
+            <div id="about" class="text-lg text-justify leading-loose skeleton">
+                <p class="text-lg section-title">
+                    {data.informations.about.title}
+                </p>
+                <p class="text-base">{@html data.informations.about.content}</p>
+            </div>
         </div>
     </div>
 </main>
@@ -169,17 +173,16 @@
 {#if buttonScrollToTopisVisible}
     <button
         onclick={scrollToTop}
-        class="p-2 fixed bottom-20 right-10 bg-cat-lavender text-cat-crust rounded-full">
+        class="p-2 fixed bottom-10 right-10 bg-cat-lavender text-cat-crust rounded-full">
         <Icon icon="flowbite:angle-top-solid" width="30" height="30" />
     </button>
 {/if}
 
-<Footer />
+<!-- <Footer /> -->
 
 <script lang="ts">
     import photoDarkTheme from "@assets/me_dark.png"
     import photoLightTheme from "@assets/me_light.png"
-    import Footer from "@components/Footer.svelte"
     import Navbar from "@components/Navbar.svelte"
     import SkillWithIcon from "@components/SkillWithIcon.svelte"
     import Icon from "@iconify/svelte"

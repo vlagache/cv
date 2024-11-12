@@ -212,4 +212,9 @@ main_content:
                 - label: /vincent-lagache
                   icon: mdi:linkedin
                   href: https://www.linkedin.com/in/vincent-lagache/
+        about:
+            title: "A propos de ce CV"
+            content: "Ce curriculum vitae a été développé par mes soins. Vous pourrez trouver son code source 
+              <a href='https://github.com/vlagache/cv' target='_blank' class='underline link'>ici</a>
+              et l'article que j'ai écrit à propos de sa conception technique <a href='https://medium.com/@vlagache' target='_blank' class='underline link'>ici</a>."
 footer:

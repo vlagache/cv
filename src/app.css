@@ -50,7 +50,7 @@ mark.with-link,
 }
 
 .section-title {
-    @apply tracking-[.25em] text-cat-peach text-base font-semibold mb-8;
+    @apply tracking-[.25em] text-cat-peach text-base font-semibold mb-8 uppercase;
 }
 
 .badge-project-skill {
