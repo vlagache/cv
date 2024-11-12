@@ -1,5 +1,5 @@
-<div class="skeleton text-lg space-y-8">
-    <div id="formation-header" class="space-y-2 skeleton">
+<div class="text-lg space-y-8">
+    <div id="formation-header" class="space-y-2">
         <div id="formation-title" class="font-semibold">
             {title}
         </div>
@@ -8,13 +8,13 @@
         </div>
     </div>
 
-    <div id="formation-content" class="space-y-6 skeleton">
+    <div id="formation-content" class="space-y-6">
         <div id="formation-description" class="leading-loose">
             {@html description}
         </div>
 
         <div id="formation-achievement">
-            <p class="flex items-start space-x-6 skeleton">
+            <p class="flex items-start space-x-6">
                 <Icon
                     icon="humbleicons:certificate"
                     class="shrink-0 text-cat-yellow achievement-icon"
@@ -27,7 +27,7 @@
             </p>
         </div>
 
-        <div id="project-skills" class="space-x-4 skeleton">
+        <div id="project-skills" class="space-x-4">
             {#each skills as skill}
                 <Badge border rounded class="badge-project-skill">
                     {skill}

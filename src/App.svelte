@@ -56,11 +56,11 @@
                     {/each}
                 </div>
             </div>
-            <div id="recommendations" class="skeleton">
+            <div id="recommendations">
                 <p class="section-title">{data.feedbacks.title}</p>
                 <div class="space-y-16">
                     {#each data.feedbacks.items as feedback}
-                        <div class="skeleton">
+                        <div id="feedback">
                             <Feedback
                                 authorName={feedback.authorName}
                                 linkedin={feedback.linkedin}

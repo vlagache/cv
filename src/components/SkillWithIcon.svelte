@@ -1,4 +1,4 @@
-<p class="flex items-center space-x-6 skeleton">
+<p class="flex items-center space-x-6">
     <Icon
         icon={icon}
         width="30"

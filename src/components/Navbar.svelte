@@ -70,7 +70,7 @@
                     placement="bottom"
                     class="{$scrollY > 40
                         ? 'mt-4'
-                        : ''} bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
+                        : ''} fixed bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
                     arrow={false}>
                     {data.tooltips.download_cv}
                 </Tooltip>
@@ -94,7 +94,7 @@
                         placement="bottom"
                         class="{$scrollY > 40
                             ? 'mt-4'
-                            : ''} bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
+                            : ''} fixed bg-cat-transparent text-xs text-cat-rosewater border-2 border-cat-rosewater p-2"
                         arrow={false}>
                         {data.tooltips.skeleton}
                     </Tooltip>

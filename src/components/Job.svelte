@@ -1,4 +1,4 @@
-<div class="skeleton text-lg space-y-8">
+<div class="text-lg space-y-8">
     <!-- TODO: I can cause the page change on the pdf here because I know
     this is where it cuts but if the content changes I'll have to change that. -->
     <div
@@ -18,7 +18,7 @@
     </div>
     <div id="projects" class="space-y-10">
         {#each projects as project}
-            <div id="project" class="space-y-6 skeleton">
+            <div id="project" class="space-y-6">
                 {#if project.positions.length === 1}
                     <div id="position" class="space-y-2">
                         <div class="font-semibold">
@@ -35,7 +35,7 @@
                         {/if}
                     </div>
                 {:else}
-                    <div id="positions" class="skeleton">
+                    <div id="positions">
                         {#each project.positions as position}
                             <div id="position" class="space-x-8">
                                 <span class="font-semibold"
@@ -48,11 +48,11 @@
                     </div>
                 {/if}
 
-                <div id="project-description" class="leading-loose skeleton">
+                <div id="project-description" class="leading-loose">
                     {project.description}
                 </div>
 
-                <div id="project-achievements" class="space-y-2 skeleton">
+                <div id="project-achievements" class="space-y-2">
                     {#each project.achievements as achievement}
                         <p id="achievement" class="flex items-start space-x-6">
                             <Icon
@@ -61,13 +61,13 @@
                                 width="20"
                                 height="20" />
                             <span
-                                class="mt-[-0.4em] skeleton text-base test-justify leading-loose"
+                                class="mt-[-0.4em] text-base test-justify leading-loose"
                                 >{@html achievement.description}</span>
                         </p>
                     {/each}
                 </div>
 
-                <div id="project-skills" class="space-x-4 skeleton">
+                <div id="project-skills" class="space-x-4">
                     {#each project.skills as skill}
                         <Badge border rounded class="badge-project-skill">
                             {skill}
