@@ -27,7 +27,7 @@
             </p>
         </div>
 
-        <div id="project-skills" class="space-x-4">
+        <div id="project-skills" class="space-x-4 space-y-2">
             {#each skills as skill}
                 <Badge border rounded class="badge-project-skill">
                     {skill}
