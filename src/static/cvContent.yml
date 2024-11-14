@@ -214,6 +214,7 @@ main_content:
                   href: https://www.linkedin.com/in/vincent-lagache/
         about:
             title: "A propos de ce CV"
-            content: "Ce curriculum vitae a été développé par mes soins. Il est visible en ligne <a href='https://vlagache.github.io/cv/' target='_blank' class='underline link'>ici</a>
-              et vous pourrez trouver son code source <a href='https://github.com/vlagache/cv' target='_blank' class='underline link'>ici</a>."
+            content: "Ce curriculum vitae a été développé par mes soins. Il est visible en ligne <a href='https://vlagache.github.io/cv/' target='_blank' class='underline link'>ici</a>, 
+              vous pourrez trouver son code source <a href='https://github.com/vlagache/cv' target='_blank' class='underline link'>ici</a> et un article qui traite
+              de sa conception technique <a href='https://medium.com/@vlagache/d%C3%A9ployez-votre-cv-sur-github-f0d71251ed25' target='_blank' class='underline link'>ici</a>"
 footer:
