@@ -40,14 +40,14 @@
                     class="w-7 h-7">
                     {#if $themeMode === ThemeMode.DARK}
                         <Icon
-                            class="text-cat-sapphire"
-                            icon="lucide:moon"
+                            class="text-cat-yellow"
+                            icon="lucide:sun"
                             width="30"
                             height="30" />
                     {:else}
                         <Icon
-                            class="text-cat-yellow"
-                            icon="lucide:sun"
+                            class="text-cat-sapphire"
+                            icon="lucide:moon"
                             width="30"
                             height="30" />
                     {/if}
